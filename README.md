@@ -1,3 +1,17 @@
+# Introduction
+
+## I'm a graduate student at Northeastern. The purpose of this repository is for webdev course in NEU.
+
+
+## Some links :
+
+   i. Root to my hosted environment on Heroku   https://dashboard.heroku.com/apps/webdev-luo-shiqi
+   
+   ii. Link to my project   https://github.com/Lainka617/webdev-luo-shiqi
+   
+   iii. Link to my assignment   https://webdev-luo-shiqi.herokuapp.com/
+     
+
 # WebMaker
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
