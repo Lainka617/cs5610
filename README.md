@@ -1,8 +1,8 @@
-I'm a graduate student at Northeastern. The purpose of this repository is for webdev course in NEU.
+## I'm a graduate student at Northeastern. The purpose of this repository is for webdev course in NEU.
 
-Some links :
+## Some links :
 
-  i. Root to my hosted environment on Heroku https://dashboard.heroku.com/apps/webdev-luo-shiqi
+  ### i. Root to my hosted environment on Heroku https://dashboard.heroku.com/apps/webdev-luo-shiqi
 
 # WebMaker
 
