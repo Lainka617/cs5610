@@ -9,11 +9,140 @@
 
 
 <!--table headings and rows-->
+
 <table border="1">
     <thead>
     <tr>
         <th>Username</th><th>Password</th><th>First Name</th>
         <th>&nbsp;</th>
+        <th>&nbsp;</th>
     </tr>
     </thead>
+    <tbody>
+    <tr>
+        <td>alice</td>
+        <td>*****</td>
+        <td>Alice</td>
+        <td>Wonderland</td>
+        <td>Student</td>
+        <td>Edit | Remove</td>
+    </tr>
+    </tbody>
 </table>
+<p></p>
+
+<!--table body,rows and data-->
+<table border="1">
+    <tbody>
+    <tr>
+        <td>alice</td>
+        <td>*****</td>
+        <td>Alice</td>
+        <td>Wonderland</td>
+        <td>Student</td>
+        <td>Edit | Remove</td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+<!--input fields and labels-->
+<form>
+<label for="usernameFld">
+    Username
+</label>
+<input id="usernameFld" type="text" title="Username" placeholder="alice"/>
+
+
+<label for="firstNameFld">
+    First Name
+</label>
+<input id="firstNameFld" type="text" value="Alice"/>
+
+<labe for="lastname">
+    Last name
+</labe>
+<input id="lastnameFld" type="text" title="Last name" placeholder="Wang"/>
+
+<labe for="passwordFld">
+    Password
+</labe>
+<input id="passwordFld" type="password" title="Password"/>
+
+<!--date input fields-->
+<label for="dobFld">
+    Date of Birth
+</label>
+<input id="dobFld" type="date" value="2011-11-22"/>
+<!--<input id="dobFld" type="date" titile="dobFld"/>-->
+</form>
+
+<!--Dorp down list-->
+<select name="role">
+
+    <option value="FACULTY"></option>
+    <option value="STUDENT"></option>
+    <option value="ADMIN"></option>
+
+</select>
+
+<!--buttons-->
+<button type="button">Delete</button>
+<button type="button">Edit</button>
+<button type="submit">Update</button>
+
+<!--form control-->
+<form>
+    <input type="text" class="form-control"/>
+    <input type="color" class="form-control"/>
+    <input type="date" class="form-control"/>
+    <input type="file" class="form-control"/>
+    <input type="number" class="form-control"/>
+    <input type="checkbox"/>
+    <input type="checkbox"/>?
+    <input type="password" class="form-control"/>
+    <input type="radio" name="choice"/>
+    <input type="radio" name="choice"/>
+    <input type="range" min="10" max="20" step="2"
+    <!--not displayed, dont know why-->
+    <input type="email" placeholder="your@email.com"/>
+    <input type="password"  placeholder="password"/>
+</form>
+
+<!--anchors-->
+<a herf="https://www.youtube.com/user/helloworld">
+    Hello word!
+</a>
+
+<!--style attribute-->
+<p style="background-color:yellow">
+   This paragraph is yellow
+</p>
+<p style="background-color:blue; color:white">
+    This paragraph is blue with white text
+</p>
+<p style="background-color:red; color:white">
+    This paragraph is red with white text
+</p>
+
+
+<!--style element-->
+<style>
+    .background-yellow{background-color:yellow;}
+    .background-blue{background-color:blue;}
+    .background-red{background-color:red;}
+    .color-white{color:white;}
+</style>
+
+<p class="background-yellow">This paragraph is yellow</p>
+<p class="background-blue color-white">This paragraph is blue with white text</p>
+<p class="background-red color-white">This paragraph is red with white text</p>
+
+
+<!--link element-->
+<link herf="style.css"rel="stylesheet"/>
+<p class="background-yellow">This paragraph is yellow</p>
+<p class="background-blue color-white">This paragraph is blue with white text</p>
+<p class="background-red color-white">This paragraph is red with white text</p>
+
