@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50981478-c7dd-44dd-9e6d-84b812f5f394" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/website-new.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/website-new.html" afterDir="false" />
-    </list>
+    <list default="true" id="50981478-c7dd-44dd-9e6d-84b812f5f394" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -48,8 +46,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/website-new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="91" column="7" selection-start-line="91" selection-start-column="7" selection-end-line="91" selection-end-column="7" />
+            <state relative-caret-position="184">
+              <caret line="79" column="15" lean-forward="true" selection-start-line="79" selection-start-column="15" selection-end-line="79" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -182,12 +180,12 @@
       <workItem from="1548570621111" duration="761000" />
       <workItem from="1548573362554" duration="963000" />
       <workItem from="1548986800039" duration="15216000" />
-      <workItem from="1549482884422" duration="5003000" />
+      <workItem from="1549482884422" duration="5090000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26496000" />
+    <option name="totallyTimeSpent" value="26583000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -390,8 +388,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/website-new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="91" column="7" selection-start-line="91" selection-start-column="7" selection-end-line="91" selection-end-column="7" />
+        <state relative-caret-position="184">
+          <caret line="79" column="15" lean-forward="true" selection-start-line="79" selection-start-column="15" selection-end-line="79" selection-end-column="15" />
         </state>
       </provider>
     </entry>
