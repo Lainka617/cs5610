@@ -3,99 +3,117 @@
 <head>
 
     <!-- Meta tags for making website for mobile-->
-
-    <meta name="apple-mobile-web-app-capable" content="yes">
-
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
     <meta name="viewport" content="width=device-width, initial scale=1">
 
     <meta charset="UTF-8">
 
-    <title>Index</title>
+    <title>Profile</title>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css"rel="stylesheet"/>
 
     <!-- STYLE sheet comes after all the libraries are loaded. Document style-->
 
 </head>
-<body>
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                Fixed Top
+<body >
+<!--<nav class="navbar navbar-default navbar-fixed-top">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="navbar-header">-->
+            <!--<a class="navbar-brand" href="#">-->
+                <!--Fixed Top-->
+            <!--</a>-->
+            <!--<p class="navbar-text pull-right">-->
+                <!--<a href="#" class="navbar-link">-->
+          <!--<span class="glyphicon glyphicon-plus">-->
+          <!--</span>-->
+                <!--</a>-->
+            <!--</p>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
+
+
+
+<nav class="navbar navbar-fixed-top cl-blue-navbar">
+    <div class="cl-blue-navbar cl-text-white profile-header">Profile</div>
+        <div class="navbar-text pull-right cl-text-white">
+            <a href="profile.html" class="navbar-link navbar-text cl-icon-padding cl-text-white">
+          <span class="fas fa-check fontawsome_icon"></span>
             </a>
-            <p class="navbar-text pull-right">
-                <a href="#" class="navbar-link">
-          <span class="glyphicon glyphicon-plus">
-          </span>
-                </a>
-            </p>
         </div>
-    </div>
 </nav>
 
+    <div class="container profile-container">
 
-<div class="container">
-    <h1>Profile</h1>
-
-    <form>
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Username">
-        </div>
-        <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="alice@wonderland.com">
-        </div>
-        <div class="form-group">
-            <label for="first-name">First Name</label>
-            <input type="text" class="form-control" id="first-name" placeholder="Alice">
-        </div>
-        <div class="form-group">
-            <label for="last-name">Last Name</label>
-            <input type="text" class="form-control" id="last-name" placeholder="Wonderland">
-        </div>
-    </form>
-
-    <a class="btn btn-primary btn-block" href="website-list.html">Websites</a>
-    <a class="btn btn-danger  btn-block" href="login.html">Logout</a>
-</div>
-
-
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-        <div class="row navbar-text">
-
-            <div class="col-xs-3 text-center">
-                <a href="#">
-                    <span class="glyphicon glyphicon-ok"></span>
-                </a>
+        <form class="form-label">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Username">
             </div>
-
-            <div class="col-xs-3 text-center">
-                <a href="#">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </a>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="alice@wonderland.com">
             </div>
-
-            <div class="col-xs-3 text-center">
-                <a href="#">
-                    <span class="glyphicon glyphicon-star"></span>
-                </a>
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" class="form-control" id="first-name" placeholder="Alice">
             </div>
-
-            <div class="col-xs-3 text-center">
-                <a href="#">
-                    <span class="glyphicon glyphicon-heart"></span>
-                </a>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" class="form-control" id="last-name" placeholder="Wonderland">
             </div>
+        </form>
 
-        </div>
+        <a class="btn btn-primary btn-block cl-blue-navbar" href="website-list.html">Websites</a>
+        <a class="btn btn-danger  btn-block" href="login.html">Logout</a>
+
+
     </div>
-</nav>
+    <!--<div class="cl-blue-navbar profile-footer ">-->
+        <!--<span class="fas fa-user fontawsome_icon pull-right navbar-link navbar-text pull-right cl-text-white cl-icon-padding"></span>-->
+    <!--</div>-->
+
+    <nav class="navbar navbar-fixed-bottom cl-blue-navbar">
+        <div class="navbar-footer">
+            <a href="profile.html" class="navbar-link navbar-text pull-right cl-text-white cl-icon-padding">
+                <span class="fas fa-user fontawsome_icon"></span>
+            </a>
+        </div>
+    </nav>
+
+
+    <!--<nav class="navbar navbar-default navbar-fixed-bottom">-->
+    <!--<div class="container">-->
+        <!--<div class="row navbar-text">-->
+
+            <!--<div class="col-xs-3 text-center">-->
+                <!--<a href="#">-->
+                    <!--<span class="glyphicon glyphicon-ok"></span>-->
+                <!--</a>-->
+            <!--</div>-->
+
+            <!--<div class="col-xs-3 text-center">-->
+                <!--<a href="#">-->
+                    <!--<span class="glyphicon glyphicon-plus"></span>-->
+                <!--</a>-->
+            <!--</div>-->
+
+            <!--<div class="col-xs-3 text-center">-->
+                <!--<a href="#">-->
+                    <!--<span class="glyphicon glyphicon-star"></span>-->
+                <!--</a>-->
+            <!--</div>-->
+
+            <!--<div class="col-xs-3 text-center">-->
+                <!--<a href="#">-->
+                    <!--<span class="glyphicon glyphicon-heart"></span>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
 
 </body>
 </html>

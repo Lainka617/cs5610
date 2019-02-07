@@ -9,25 +9,26 @@
     <meta charset="UTF-8">
 
     <title>Page List</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css"rel="stylesheet"/>
 
     <!-- STYLE sheet comes after all the libraries are loaded. Document style-->
 </head>
-<body>
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid row">
+<body class="list-body-container">
+<nav class="navbar navbar-default navbar-fixed-top navbar-background">
+    <div class="navbar-header">
 
         <div class="navbar-text pull-left">
             <a href="page-list.html" class="cl-text-black cl-icon-padding">
-          <span class="glyphicon glyphicon-chevron-left">
+          <span class="fas fa-chevron-left fontawsome_icon">
           </span>
             </a>
         </div>
         <div class="navbar-text pull-right">
             <a href="page-list.html" class="cl-icon-padding cl-text-black">
-          <span class="glyphicon glyphicon-ok">
+          <span class="fas fa-check fontawsome_icon">
           </span>
             </a>
         </div>
@@ -38,7 +39,7 @@
 </nav>
 
 <div class="container">
-    <form>
+    <form class="form-label">
         <div class="form-group">
             <label for="page-name">Name</label>
             <input type="text" class="form-control" id="page-name" placeholder="Page Name">
@@ -50,13 +51,11 @@
     </form>
 </div>
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid row">
-        <div class="pull-right navbar-text">
-            <a href="profile.html" class="cl-icon-padding">
-                <span class="glyphicon glyphicon-user"></span>
-            </a>
-        </div>
+<nav class="navbar navbar-default navbar-fixed-bottom navbar-background">
+    <div class="navbar-footer">
+        <a href="profile.html" class="navbar-link navbar-text pull-right list-group-text cl-icon-padding">
+            <span class="fas fa-user fontawsome_icon"></span>
+        </a>
     </div>
 </nav>
 

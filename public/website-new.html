@@ -8,67 +8,72 @@
     <meta charset="UTF-8">
 
     <title>Website List</title>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css"rel="stylesheet"/>
 
     <!-- STYLE sheet comes after all the libraries are loaded. Document style-->
 </head>
 
-<body>
+<body class="list-body-container">
 <nav class="navbar navbar-fixed-top cl-blue-navbar">
-    <div class="row">
-        <div class="col-xs-4 hidden-xs">
-            <div class="container-fluid">
+
+        <div class="col-xl-4 col-md-4 websites-list float-left">
+            <div class="navbar-header">
                 <p class="navbar-text pull-left">
                     <a href="website-list.html" class="navbar-link cl-text-white">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="fas fa-chevron-left fontawsome_icon"></span>
                     </a>
                 </p>
                 <a class="cl-text-white navbar-brand cl-text-bold" href="#">
                     Websites
                 </a>
                 <a href="#" class="navbar-link navbar-text pull-right cl-text-white cl-icon-padding">
-                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="fas fa-plus fontawsome_icon"></span>
                 </a>
             </div>
         </div>
-        <div class="col-xs-8">
-            <div class="container-fluid">
-                <a class="cl-text-white navbar-brand cl-text-bold" herf="#">
-                    New Websites
+        <div class="col-xl-8 col-md-8 float-left">
+            <div class="navbar-header">
+                <p class="navbar-text pull-left">
+                    <a href="website-list.html" class="navbar-link cl-text-white back-icon-display">
+                        <span class="fas fa-chevron-left fontawsome_icon"></span>
+                    </a>
+                </p>
+                <a class="cl-text-white navbar-brand cl-text-bold" href="#">
+                    New Website
                 </a>
-                <a herf="website-list.html" class="navbar-text pull-right cl-text-white cl-icon-padding">
-                    <span class="glyphicon glyphicon-ok"></span>
+                <a href="website-list.html" class="navbar-text pull-right cl-text-white cl-icon-padding">
+                    <span class="fas fa-check fontawsome_icon"></span>
                 </a>
             </div>
         </div>
-    </div>
+
 </nav>
 
-<div class="container-fluid">
-    <div class="col-xs-4 hidden-xs">
+<div class="website-new-content">
+    <div class="col-xl-4 col-md-4 websites-list float-left content-border">
         <ul class="list-group cl-list-group-borderless">
             <li class="list-group-item cl-list-item-borderless">
-                <a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+                <a href="website-edit.html"><span class="fas fa-cog fontawsome_icon pull-right"></span></a>
                 <a href="page-list.html">Blogging App</a>
             </li>
             <li class="list-group-item cl-list-item-borderless">
-                <a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+                <a href="website-edit.html"><span class="fas fa-cog fontawsome_icon pull-right"></span></a>
                 <a href="page-list.html">Address Book App</a>
             </li>
             <li class="list-group-item cl-list-item-borderless">
-                <a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+                <a href="website-edit.html"><span class="fas fa-cog fontawsome_icon pull-right"></span></a>
                 <a href="page-list.html">Script Testing App</a>
             </li>
             <li class="list-group-item cl-list-item-borderless">
-                <a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right"></span></a>
+                <a href="website-edit.html"><span class="fas fa-cog fontawsome_icon pull-right"></span></a>
                 <a href="page-list.html">Blogger</a>
             </li>
         </ul>
     </div>
-    <div class="col-xs-8">
-        <form>
+    <div class="col-xl-8 col-md-8 float-left">
+        <form class="form-label">
             <div class="form-group">
                 <label for="website-name">Name</label>
                 <input type="text" class="form-control" id="website-name" placeholder="Name">
@@ -82,9 +87,9 @@
 </div>
 
 <nav class="navbar navbar-fixed-bottom cl-blue-navbar">
-    <div class="container-fuild">
+    <div class="navbar-footer">
         <a href="profile.html" class="navbar-link navbar-text pull-right cl-text-white cl-icon-padding">
-            <span class="glyphicon glyphicon-user"></span>
+            <span class="fas fa-user fontawsome_icon"></span>
         </a>
     </div>
 </nav>
