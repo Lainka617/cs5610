@@ -200,13 +200,13 @@ a:hover {
 }
 
 .back-icon-display {
-    display: none;
-}
+     display: none;
+ }
 
 @media screen and (min-width: 800px) {
-    .pull-right {
-        display: none;
-    }
+    /*.pull-right {*/
+        /*display: none;*/
+    /*}*/
     .col-xl-4 .pull-right {
         display: inline-block;
     }
@@ -222,10 +222,10 @@ a:hover {
 }
 
 @media screen and (max-width: 1000px) {
-    .websites-list {
-        display: none;
-    }
-    .back-icon-display {
+    /*.websites-list {*/
+        /*display: none;*/
+    /*}*/
+    back-icon-display {
         display: inline-block;
     }
 }
