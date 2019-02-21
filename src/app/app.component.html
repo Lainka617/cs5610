@@ -1,21 +1,40 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="CCIS Logo" src="../assets/logo.jpeg">
-</div>
-<h2>Here are some links to help you start: (Please let us know if you have any questions)</h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
 <router-outlet></router-outlet>
+<div class="container home-container">
+
+    <h1 class="cl-blue-navbar head-text">Assignment Home Page</h1>
+
+    <div class="list-container">
+
+        <ul><a [routerLink]="['/login']"> <strong>login</strong> </a></ul>
+
+        <ul><a [routerLink]="['/user/:uid/website/:wid/page/:pid']"> <strong>page-edit</strong> </a></ul>
+
+        <ul><a [routerLink]="['/user/:uid/website/:wid/page/:pid']"> <strong>page-list</strong> </a></ul>
+
+        <ul><a [routerLink]="['/user/:uid/website/:wid/page/:pid']"> <strong>page-new</strong> </a></ul>
+
+        <ul><a [routerLink]="['user/:uid']"> <strong>profile</strong> </a></ul>
+
+        <ul><a [routerLink]="['/register']"> <strong>register</strong> </a></ul>
+
+        <ul><a [routerLink]="['/user/:uid/website/:wid/page/:pid']"> <strong>website-edit</strong> </a></ul>
+
+        <ul><a [routerLink]="['user/:uid/website']"> <strong>website-list</strong> </a></ul>
+
+        <ul><a [routerLink]="['/user/:uid/website/:wid/page/:pid']"> <strong>website-new</strong> </a></ul>
+
+        <ul><a [routerLink]="['/user/:uid/website/:wid/page/:pid']"> <strong>widget-chooser</strong> </a></ul>
+
+        <ul><a [routerLink]="['/user/:uid/website/:wid/page/:pid']"> <strong>widget-heading</strong> </a></ul>
+
+        <ul><a [routerLink]="['/user/:uid/website/:wid/page/:pid']"> <strong>widget-image</strong> </a></ul>
+
+        <ul><a [routerLink]="['/user/:uid/website/:wid/page/:pid']"> <strong>widget-list</strong> </a></ul>
+
+        <ul><a [routerLink]="['/user/:uid/website/:wid/page/:pid']"> <strong>widget-youtube</strong></a></ul>
+
+        <ul><a [routerLink]="['/user/:uid/website/:wid/page/:pid']"> <strong>test</strong> </a></ul>
+
+
+    </div>
+</div>
