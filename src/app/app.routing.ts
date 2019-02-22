@@ -28,10 +28,10 @@ const appRoutes: Routes = [​
     { path: 'user/:uid/website/:wid/page/new', component: PageNewComponent},
     { path: 'user/:uid/website/:wid/page/:pid', component: PageEditComponent},
     { path: 'user/:uid/website/:wid/page/:pid/widget', component: WidgetListComponent},
-    { path: 'user/:uid/website/:wid/page/:pid/widget/new', component: WidgetChooserComponent},
-    { path: 'user/:uid/website/:wid/page/:pid/widget/:wgid', component: WidgetHeadingComponent},
-    { path: 'user/:uid/website/:wid/page/:pid/widget/:wgid', component: WidgetImageComponent},
-    { path: 'user/:uid/website/:wid/page/:pid/widget/:wgid', component: WidgetYoutubeComponent}
+    { path: 'user/:uid/website/:wid/page/:pid/widget/chooser', component: WidgetChooserComponent},
+    { path: 'user/:uid/website/:wid/page/:pid/widget/:wgid/heading', component: WidgetHeadingComponent},
+    { path: 'user/:uid/website/:wid/page/:pid/widget/:wgid/image', component: WidgetImageComponent},
+    { path: 'user/:uid/website/:wid/page/:pid/widget/:wgid/youtube', component: WidgetYoutubeComponent}
 ];​
 
 export const routing = RouterModule.forRoot(appRoutes);

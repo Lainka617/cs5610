@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../../services/user.service.client';
 import { User } from '../../../models/user.model.client';
+import { faUser, faCheck } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +15,8 @@ export class ProfileComponent implements OnInit {
   user: User;
   userId: string;
   username: string;
+  faUser = faUser;
+  faCheck = faCheck;
 
   constructor(private _userService: UserService, private _router: ActivatedRoute) {
 

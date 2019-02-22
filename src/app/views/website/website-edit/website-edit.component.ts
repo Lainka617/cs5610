@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { WebsiteService } from '../../../services/website.service.client';
 import { Website } from '../../../models/website.model.client';
 import {NgForm} from "@angular/forms";
+import { faUser, faChevronLeft, faCog } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-website-edit',

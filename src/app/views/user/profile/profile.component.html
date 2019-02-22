@@ -1,12 +1,10 @@
-<!--<p>-->
-  <!--profile works!-->
-<!--</p>-->
-
 <nav class="navbar bg-primary navbar-fixed-top">
   <div class="container-fluid ">
 
     <a class="navbar-brand cl-text-white" routerLink="">Profile</a>
-    <a (click)="UpdateUser()" class="btn-primary navbar-text pull-right"><span class="glyphicon glyphicon-ok cl-text-white"></span></a>
+    <a (click)="UpdateUser()" class="btn-primary navbar-text pull-right">
+      <fa-icon [icon]="faCheck" class="cl-text-white"></fa-icon>
+    </a>
 
   </div>
 </nav>
@@ -36,29 +34,10 @@
   <a class="btn btn-danger  btn-block" routerLink="/login">Logout</a>
 </div>
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
-  <div class="container">
-    <div class="row navbar-text">
-      <div class="col-xs-3 text-center">
-        <a href="#">
-          <span class="glyphicon glyphicon-ok"></span>
-        </a>
-      </div>
-      <div class="col-xs-3 text-center">
-        <a href="#">
-          <span class="glyphicon glyphicon-plus"></span>
-        </a>
-      </div>
-      <div class="col-xs-3 text-center">
-        <a href="#">
-          <span class="glyphicon glyphicon-star"></span>
-        </a>
-      </div>
-      <div class="col-xs-3 text-center">
-        <a href="#">
-          <span class="glyphicon glyphicon-heart"></span>
-        </a>
-      </div>
-    </div>
+<nav class="navbar navbar-fixed-bottom cl-blue-navbar">
+  <div class="navbar-footer">
+    <a routerLink="/user/{{userId}}" class="navbar-link navbar-text pull-right cl-text-white cl-icon-padding">
+      <fa-icon [icon]="faUser"></fa-icon>
+    </a>
   </div>
 </nav>

@@ -12,10 +12,10 @@ export class WebsiteService {
         {'_id': '234', 'name': 'Twittter', 'developerId': '456', 'description': 'Lorem2' },
         {'_id': '456', 'name': 'Gizmodo', 'developerId': '456', 'description': 'Lorem3' },
         {'_id': '890', 'name': 'Microsoft', 'developerId': '234', 'description': 'Lorem4' },
-        {'_id': '567', 'name': 'google', 'developerId': '123', 'description': 'Lorem5' },
-        {'_id': '678', 'name': 'uber', 'developerId': '234', 'description': 'Lorem6' },
-        {'_id': '671', 'name': 'lyft', 'developerId': '345', 'description': 'Lorem7' },
-        {'_id': '789', 'name': 'zillow', 'developerId': '345', 'description': 'Lorem8' }
+        {'_id': '567', 'name': 'Google', 'developerId': '123', 'description': 'Lorem5' },
+        {'_id': '678', 'name': 'Uber', 'developerId': '234', 'description': 'Lorem6' },
+        {'_id': '671', 'name': 'Lyft', 'developerId': '345', 'description': 'Lorem7' },
+        {'_id': '789', 'name': 'Zillow', 'developerId': '345', 'description': 'Lorem8' }
     ];
 
     api = {
