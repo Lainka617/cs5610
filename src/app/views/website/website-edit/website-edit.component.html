@@ -7,7 +7,7 @@
             <span class="fas fa-chevron-left fontawsome_icon"></span>
           </a>
         </p>
-        <a class="cl-text-white navbar-brand cl-text-bold" href="#">
+        <a class="cl-text-white navbar-brand cl-text-bold navbar-header-text" href="#">
           Websites
         </a>
         <a routerLink="/user/{{userId}}/website/new" class="navbar-link navbar-text pull-right cl-text-white cl-icon-padding">
@@ -18,11 +18,11 @@
     <div class="col-xl-8 col-md-8 float-left">
       <div class="navbar-header">
         <p class="navbar-text pull-left">
-          <a routerLink="user/{{userId}}/website" class="navbar-link cl-text-white back-icon-display">
+          <a routerLink="/user/{{userId}}/website" class="navbar-link cl-text-white back-icon-display">
             <span class="fas fa-chevron-left fontawsome_icon"></span>
           </a>
         </p>
-        <a class="cl-text-white navbar-brand cl-text-bold" href="#">
+        <a class="cl-text-white navbar-brand cl-text-bold navbar-header-text" href="#">
           Edit Websites
         </a>
         <a routerLink="/user/{{userId}}/website" (click)="update()" class="navbar-link navbar-text pull-right cl-text-white cl-icon-padding">
@@ -37,7 +37,7 @@
     <div class="col-xl-4 col-md-4 websites-list float-left content-border">
       <ul class="list-group cl-list-group-borderless">
         <li *ngFor="let website of websites" class="list-group-item cl-list-item-borderless">
-          <a routerLink="/user/{{userId}}/website/{{website._id}}"><fa-icon [icon]="faCog" class="pull-right"></fa-icon></a>
+          <a routerLink="/user/{{userId}}/website/{{website._id}}"><span class="fas fa-cog fontawsome_icon pull-right"></span></a>
           <a routerLink="/user/{{userId}}/website/{{website._id}}/page">{{website.name}}</a>
         </li>
       </ul>
@@ -47,16 +47,16 @@
 
         <div class="form-group">
           <label for="website-name">Website Name</label>
-          <input [(ngModel)]="website.name" type="text" id="website-name" name="websiteName" placeholder="Blogger" class="form-control">
+          <input [(ngModel)]="websiteName" type="text" id="website-name" name="websiteName" placeholder="Blogger" class="form-control">
         </div>
 
         <div class="form-group">
           <label for="website-description">Website Description</label>
-          <textarea [(ngModel)]="website.description" type="text" id="website-description" rows="5" name="websiteDes" placeholder="Blog is a blog-publishing service." class="form-control"></textarea>
+          <textarea [(ngModel)]="websiteDescription" type="text" id="website-description" rows="5" name="websiteDes" placeholder="Blog is a blog-publishing service." class="form-control"></textarea>
         </div>
 
         <div class="form-group">
-          <a class="btn btn-danger btn-block cl-text-white" routerLink="/user/{{userId}}/website">Delete</a>
+          <a class="btn btn-danger btn-block cl-text-white" routerLink="/user/{{userId}}/website" (click)="delete()">Delete</a>
         </div>
       </form>
     </div>

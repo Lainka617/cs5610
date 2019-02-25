@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Page} from "../../../models/page.model.client";
-import {PageService} from "../../../services/page.service.client";
-import {ActivatedRoute} from "@angular/router";
+import {Page} from '../../../models/page.model.client';
+import {PageService} from '../../../services/page.service.client';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-page-new',
@@ -27,8 +27,13 @@ export class PageNewComponent implements OnInit {
     );
   }
 
-  add () {
-    this._pageService.createPage(this.websiteId, new Page('654', this.pageName, this.websiteId, this.pageDes));
+  addPage () {
+    // generate id for new page, just use 101 by now.
+    // will add random unique id generating logic later
+    this._pageService.createPage(this.websiteId, new Page('101', this.pageName, this.websiteId, this.pageDes));
+    let pageTest = this._pageService.findPageById('101');
+    console.log(pageTest.name);
+    console.log(pageTest.description);
   }
 
 }

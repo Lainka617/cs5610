@@ -64,6 +64,8 @@ export class UserService {
             if (this.users[i]._id === user._id) {
                 this.users[i].firstName = user.firstName;
                 this.users[i].lastName = user.lastName;
+                this.users[i].email = user.email;
+                this.users[i].username = user.username;
                 return this.users[i];
             }
         }

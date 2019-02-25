@@ -1,0 +1,230 @@
+/* You can add global styles to this file, and also import other style files */
+/*.background-yellow {background-color:yellow;}*/
+/*.background-blue {background-color:blue;}*/
+/*.background-red {background-color:red;}*/
+/*.color-white {color:white;}*/
+
+
+.body-padding {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+body.home-container {
+    text-align: center
+}
+
+.head-text {
+    color: white;
+    padding: 10px;
+}
+
+.list-container {
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.list-container ul {
+    padding-left: 0px;
+}
+
+.profile-header {
+    font-size: 25px;
+    padding: 15px 15px 15px 15px;
+    height: 68px;
+}
+
+.form-label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.profile-footer {
+    height: 68px;
+    position: absolute;
+    bottom:0px;
+    width: 100%;
+}
+
+input.form-control {
+    margin-bottom: 5px;
+}
+
+.cl-form-bottom-padding {
+    margin-bottom: 2em;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.cl-container-padding {
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
+
+.cl-blue-navbar {
+    background-color: #337ab7;
+}
+
+.cl-text-white {
+    color: #fff !important;
+}
+
+.cl-text-black {
+    color: #000000;
+}
+
+.cl-text-bold {
+    font-weight: bold;
+}
+
+.cl-icon-padding {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.cl-header-padding {
+    padding-left: 5%;
+}
+
+.cl-full-width {
+    width: 100%;
+}
+
+.cl-widget-list-item {
+    padding-bottom: 20px;
+}
+
+.cl-v-divider {
+    border-right: 1px solid #808080;
+    height: 100%;
+}
+
+.cl-widget-heading {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.cl-widget-paragraph {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.cl-height {
+    height: 100%;
+    min-height: 100%;
+}
+
+.cl-relative-position {
+    position: relative;
+}
+.cl-absolute-position {
+    position: absolute;
+}
+.cl-widget-list-icons {
+    top: 0px;
+    right: 0px;
+    z-index: 10;
+    background-color: white;
+}
+.cl-zero-right-padding {
+    padding-right: 0px;
+}
+
+.cl-list-item-borderless {
+    border-top: 0 none;
+    border-bottom: 0 none;
+    border-left: 0 none;
+    border-right: 0 none;
+}
+
+.cl-widget-images {
+    display: inline;
+    width: 85%;
+    z-index: 100;
+    position: relative;
+}
+
+.list-body-container {
+    margin-top: 70px;
+}
+
+.navbar-fixed-top {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+}
+
+.navbar-fixed-bottom {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+.list-group-text {
+    color: #337ab7;
+}
+
+.navbar-header, .navbar-footer {
+    width: 100%;
+}
+
+.navbar-background {
+    background-color: lightgray;
+}
+
+.pull-right {
+    float: right;
+}
+
+.navbar-header-text {
+    margin-left: 10px;
+}
+
+.float-left {
+    float: left;
+}
+
+.website-new-content {
+    padding-top: 10px;
+    margin-top: 40px;
+}
+
+.website-new-content a{
+    color: #337ab7;
+}
+
+.content-border{
+    border-right: 1px solid black;
+    height: -webkit-fill-available;
+}
+
+.back-icon-display {
+    display: none;
+}
+
+@media screen and (min-width: 800px) {
+    .col-xl-4 .pull-right {
+        display: inline-block;
+    }
+    .col-xl-8 .pull-right {
+        display: inline-block;
+    }
+    .navbar-fixed-bottom {
+        position: absolute;
+        width: 100%;
+        height: 68px;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    .websites-list {
+        display: none;
+    }
+    .back-icon-display {
+        display: inline-block;
+    }
+}

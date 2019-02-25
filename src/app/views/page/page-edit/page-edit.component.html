@@ -3,15 +3,13 @@
     <div class="navbar-header">
 
       <div class="navbar-text pull-left">
-        <a routerLink="user/{{userId}}/website/{{websiteId}}/page" class="cl-text-black cl-icon-padding">
-            <span class="fas fa-chevron-left fontawsome_icon">
-            </span>
+        <a routerLink="/user/{{userId}}/website/{{websiteId}}/page" class="cl-text-black cl-icon-padding">
+          <span class="fas fa-chevron-left fontawsome_icon"></span>
         </a>
       </div>
       <div class="navbar-text pull-right">
-        <a routerLink="user/{{userId}}/website/{{websiteId}}/page" (click)="update()" class="cl-icon-padding cl-text-black">
-            <span class="fas fa-check fontawsome_icon">
-            </span>
+        <a routerLink="/user/{{userId}}/website/{{websiteId}}/page" (click)="update()" class="cl-icon-padding cl-text-black">
+          <span class="fas fa-check fontawsome_icon"></span>
         </a>
       </div>
       <a class="navbar-brand cl-text-black cl-text-bold" href="#">
@@ -25,23 +23,23 @@
 
       <div class="form-group">
         <label for="page-name">Page Name</label>
-        <input [(ngModel)]="page.name" type="text" id="page-name" name="pageName" placeholder="page name" class="form-control">
+        <input [(ngModel)]="pageName" type="text" id="page-name" name="pageName" placeholder="page name" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="page-title">Page Title</label>
-        <textarea [(ngModel)]="page.description" type="text" id="page-title" rows="5" name="pageTitle" placeholder="page title" class="form-control"></textarea>
+        <textarea [(ngModel)]="pageDescription" type="text" id="page-title" rows="5" name="pageTitle" placeholder="page title" class="form-control"></textarea>
       </div>
 
       <div class="form-group">
-        <a class="btn btn-danger  btn-block" routerLink="user/{{userId}}/website/{{websiteId}}/page">Delete</a>
+        <a class="btn btn-danger btn-block" routerLink="/user/{{userId}}/website/{{websiteId}}/page" (click)="delete()">Delete</a>
       </div>
     </form>
   </div>
 
   <nav class="navbar navbar-default navbar-fixed-bottom navbar-background">
     <div class="navbar-footer">
-      <a routerLink="user/{{userId}}" class="navbar-link navbar-text pull-right list-group-text cl-icon-padding">
+      <a routerLink="/user/{{userId}}" class="navbar-link navbar-text pull-right list-group-text cl-icon-padding">
         <span class="fas fa-user fontawsome_icon"></span>
       </a>
     </div>

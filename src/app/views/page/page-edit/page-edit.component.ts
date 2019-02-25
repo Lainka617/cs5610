@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Page} from '../../../models/page.model.client';
 import {PageService} from '../../../services/page.service.client';
 import {ActivatedRoute} from '@angular/router';
+// import { faUser, faChevronLeft, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-page-edit',
@@ -14,6 +15,8 @@ export class PageEditComponent implements OnInit {
   userId: string;
   pageId: string;
   page: Page;
+  pageName: string;
+  pageDescription: string;
 
   constructor(private _pageService: PageService, private _activatedRoute: ActivatedRoute) { }
 
@@ -26,10 +29,16 @@ export class PageEditComponent implements OnInit {
         }
     );
     this.page = this._pageService.findPageById(this.pageId);
+
+    this.pageName = this.page.name;
+    this.pageDescription = this.page.description;
   }
 
   update () {
-    this._pageService.updatePage(this.pageId, this.page);
+    this._pageService.updatePage(this.pageId, new Page(this.page._id, this.pageName, this.page.websiteId, this.pageDescription));
+    let pageTest = this._pageService.findPageById(this.pageId);
+    console.log(pageTest.name);
+    console.log(pageTest.description);
   }
 
   delete () {

@@ -1,3 +1,70 @@
-<p>
-  widget-image works!
-</p>
+<div class="list-body-container">
+  <nav class="navbar navbar-default navbar-fixed-top navbar-background">
+    <div class="navbar-header">
+
+      <div class="navbar-text pull-left">
+        <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget" class="cl-text-black cl-icon-padding">
+            <span class="fas fa-chevron-left fontawsome_icon">
+            </span>
+        </a>
+      </div>
+      <div class="navbar-text pull-right">
+        <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget" (click)="update()" class="cl-icon-padding cl-text-black">
+            <span class="fas fa-check fontawsome_icon">
+            </span>
+        </a>
+      </div>
+      <a class="navbar-brand cl-text-black cl-text-bold" href="#">
+        Widgets Edit
+      </a>
+    </div>
+  </nav>
+
+  <div class="container wedget-edit-padding">
+    <form (ngSubmit)="delete()" #f="ngForm" class="form-label">
+
+      <div class="form-group">
+        <label for="image-name">Name</label>
+        <input [(ngModel)]="imageName" type="text" id="image-name" name="imageName" placeholder="Name" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="image-text">Text</label>
+        <input [(ngModel)]="imageText" type="text" id="image-text" name="imageText" placeholder="Text" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="image-url">URL</label>
+        <input [(ngModel)]="imageUrl" type="text" id="image-url" name="imageUrl" placeholder="URL" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="image-width">Width</label>
+        <input [(ngModel)]="imageWidth" type="text" id="image-width" name="imageWidth" placeholder="100%" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputFile">Upload</label>
+        <input type="file" class="form-control" name="imageUpload" id="exampleInputFile">
+      </div>
+
+      <div class="form-group">
+        <a class="btn btn-primary btn-block" href="#">Upload Image</a>
+        <a class="btn btn-danger btn-block cl-text-white" routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget" (click)="delete()">Delete</a>
+      </div>
+    </form>
+  </div>
+
+  <nav class="navbar navbar-default navbar-fixed-bottom navbar-background">
+    <div class="navbar-header">
+      <div class="pull-right navbar-text">
+
+        <a routerLink="/user/{{userId}}" class="cl-icon-padding list-group-text">
+          <span class="fas fa-user fontawsome_icon"></span>
+        </a>
+
+      </div>
+    </div>
+  </nav>
+
+</div>

@@ -35,6 +35,10 @@ body.home-container {
     font-weight: bold;
 }
 
+.formgroup-margin {
+    margin-top: 25px;
+}
+
 .profile-footer {
     height: 68px;
     position: absolute;
@@ -201,9 +205,9 @@ a:hover {
 }
 
 @media screen and (min-width: 800px) {
-    .pull-right {
-        display: none;
-    }
+    /*.pull-right {*/
+        /*display: none;*/
+    /*}*/
     .col-xl-4 .pull-right {
         display: inline-block;
     }

@@ -22,6 +22,8 @@ export class PageListComponent implements OnInit {
         (params: any) => {
           this.userId = params['uid'];
           this.websiteId = params['wid'];
+          console.log(this.userId);
+          console.log(this.websiteId);
         }
     );
 

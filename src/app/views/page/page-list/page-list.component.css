@@ -187,11 +187,11 @@ a:hover {
     float: left;
 }
 
-.website-new-content {
-    padding-top: 10px;
+.page-list-padding {
+    padding-top: 60px;
 }
 
-.website-new-content a{
+.page-list-content a{
     color: #337ab7;
 }
 
@@ -205,9 +205,6 @@ a:hover {
 }
 
 @media screen and (min-width: 800px) {
-    .pull-right {
-        display: none;
-    }
     .col-xl-4 .pull-right {
         display: inline-block;
     }

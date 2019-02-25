@@ -3,13 +3,13 @@
     <div class="navbar-header">
 
       <div class="navbar-text pull-left">
-        <a routerLink="user/{{userId}}/website/{{websiteId}}/page" class="cl-text-black cl-icon-padding">
+        <a routerLink="/user/{{userId}}/website/{{websiteId}}/page" class="cl-text-black cl-icon-padding">
             <span class="fas fa-chevron-left fontawsome_icon">
             </span>
         </a>
       </div>
       <div class="navbar-text pull-right">
-        <a routerLink="user/{{userId}}/website/{{websiteId}}/page" (click)="add()" class="cl-icon-padding cl-text-black">
+        <a routerLink="/user/{{userId}}/website/{{websiteId}}/page" (click)="addPage()" class="cl-icon-padding cl-text-black">
             <span class="fas fa-check fontawsome_icon">
             </span>
         </a>
@@ -37,7 +37,7 @@
 
   <nav class="navbar navbar-default navbar-fixed-bottom navbar-background">
     <div class="navbar-footer">
-      <a routerLink="user/{{userId}}" class="navbar-link navbar-text pull-right list-group-text cl-icon-padding">
+      <a routerLink="/user/{{userId}}" class="navbar-link navbar-text pull-right list-group-text cl-icon-padding">
         <span class="fas fa-user fontawsome_icon"></span>
       </a>
     </div>

@@ -3,9 +3,8 @@
     <div class="navbar-header">
 
       <div class="navbar-text pull-left">
-        <a href="widget-list.html" class="cl-text-black cl-icon-padding">
-            <span class="fas fa-chevron-left fontawsome_icon">
-            </span>
+        <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget" class="cl-text-black cl-icon-padding">
+          <span class="fas fa-chevron-left fontawsome_icon"></span>
         </a>
       </div>
 
@@ -18,7 +17,7 @@
   <div class="container-fluid cl-container-padding website-new-content">
     <ul class="list-group cl-list-group-borderless">
       <li class="list-group-item cl-list-item-borderless">
-        <a href="widget-heading.html">Header</a>
+        <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget/{{widgetId}}/heading">Header</a>
       </li>
       <li class="list-group-item cl-list-item-borderless">
         <a href="#">Label</a>
@@ -36,10 +35,10 @@
         <a href="#">Button</a>
       </li>
       <li class="list-group-item cl-list-item-borderless">
-        <a href="widget-image.html">Image</a>
+        <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget/{{widgetId}}/image">Image</a>
       </li>
       <li class="list-group-item cl-list-item-borderless">
-        <a href="widget-youtube.html">YouTube</a>
+        <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget/{{widgetId}}/youtube">YouTube</a>
       </li>
       <li class="list-group-item cl-list-item-borderless">
         <a href="#">Data Table</a>
@@ -54,7 +53,7 @@
     <div class="navbar-header">
       <div class="pull-right navbar-text">
 
-        <a href="profile.html" class="cl-icon-padding list-group-text">
+        <a routerLink="/user/{{userId}}" class="cl-icon-padding list-group-text">
           <span class="fas fa-user fontawsome_icon"></span>
         </a>
 

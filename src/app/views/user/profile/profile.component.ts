@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../../services/user.service.client';
 import { User } from '../../../models/user.model.client';
-import { faUser, faCheck } from '@fortawesome/free-solid-svg-icons';
+// import { faUser, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -15,17 +15,23 @@ export class ProfileComponent implements OnInit {
   user: User;
   userId: string;
   username: string;
-  faUser = faUser;
-  faCheck = faCheck;
+  userEmail: string;
+  userFirstName: string;
+  userLastName: string;
+  // faUser = faUser;
+  // faCheck = faCheck;
 
   constructor(private _userService: UserService, private _router: ActivatedRoute) {
 
   }
 
-  UpdateUser() {
+  updateUser() {
+    this._userService.updateUser(new User(this.userId, this.username, this.user.password, this.userFirstName, this.userLastName, this.userEmail));
+    this.user = this._userService.findUserById(this.userId);
     console.log(this.user.username);
     console.log(this.user.firstName);
     console.log(this.user.lastName);
+    console.log(this.user.email);
   }
 
   ngOnInit() {
@@ -36,6 +42,9 @@ export class ProfileComponent implements OnInit {
     });
 
     this.user = this._userService.findUserById(this.userId);
-    this.username = this.user['username'];
+    this.username = this.user.username;
+    this.userEmail = this.user.email;
+    this.userFirstName = this.user.firstName;
+    this.userLastName = this.user.lastName;
   }
 }

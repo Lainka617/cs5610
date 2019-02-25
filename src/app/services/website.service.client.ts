@@ -8,7 +8,7 @@ export class WebsiteService {
     constructor() {}
 
     websites = [
-        {'_id': '123', 'name': 'Facebook', 'developerId': '123', 'description': 'Lorem' },
+        {'_id': '123', 'name': 'Facebook', 'developerId': '123', 'description': 'Lorem1' },
         {'_id': '234', 'name': 'Twittter', 'developerId': '456', 'description': 'Lorem2' },
         {'_id': '456', 'name': 'Gizmodo', 'developerId': '456', 'description': 'Lorem3' },
         {'_id': '890', 'name': 'Microsoft', 'developerId': '234', 'description': 'Lorem4' },
@@ -29,7 +29,7 @@ export class WebsiteService {
     createWebsite(userId: String, website: Website) {
 
         const new_website: Website = {
-            _id: (new Date()).getTime() + '',
+            _id: website._id,
             name: website.name,
             developerId: website.developerId,
             description: website.description

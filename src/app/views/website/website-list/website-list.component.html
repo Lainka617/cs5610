@@ -2,22 +2,22 @@
   <nav class="navbar navbar-fixed-top cl-blue-navbar">
     <div class="navbar-header">
       <a routerLink="/user/{{userId}}" class="navbar-link cl-text-white">
-        <fa-icon [icon]="faChevronLeft"></fa-icon>
+        <span class="fas fa-chevron-left fontawsome_icon"></span>
       </a>
 
       <a class="cl-text-white navbar-brand cl-text-bold navbar-header-text" href="#">
         Websites
       </a>
       <a routerLink="/user/{{userId}}/website/new" class="navbar-link navbar-text cl-text-white cl-icon-padding pull-right">
-        <fa-icon [icon]="faPlus"></fa-icon>
+        <span class="fas fa-plus fontawsome_icon"></span>
       </a>
     </div>
   </nav>
 
-  <div class="container">
+  <div class="container website-new-content">
     <ul class="list-group cl-list-group-borderless list-group-text">
       <li *ngFor="let website of websites" class="list-group-item cl-list-item-borderless">
-        <a routerLink="/user/{{userId}}/website/{{website._id}}"><fa-icon [icon]="faCog" class="pull-right"></fa-icon></a>
+        <a routerLink="/user/{{userId}}/website/{{website._id}}"><span class="fas fa-cog fontawsome_icon pull-right"></span></a>
         <a routerLink="/user/{{userId}}/website/{{website._id}}/page">{{website.name}}</a>
       </li>
     </ul>
@@ -26,7 +26,7 @@
   <nav class="navbar navbar-fixed-bottom cl-blue-navbar">
     <div class="navbar-footer">
       <a routerLink="/user/{{userId}}" class="navbar-link navbar-text pull-right cl-text-white cl-icon-padding">
-        <fa-icon [icon]="faUser"></fa-icon>
+        <span class="fas fa-user fontawsome_icon"></span>
       </a>
     </div>
   </nav>

@@ -7,26 +7,79 @@ export  class WidgetService {
     constructor() {
     }
 
-    widgets = [
-        {'_id': '123', 'widgetType': 'HEADDING', 'pageId': '321', 'size': '2', 'text': 'GIZMODO'},
-        {'_id': '234', 'widgetType': 'HEADDING', 'pageId': '321', 'size': '4', 'text': 'Lorem ipsum'},
+    widgets: Widget[] = [
+        {'_id': '321', 'widgetType': 'HEADING', 'pageId': '321', 'name': 'This is a header', 'size': '2', 'text': 'GIZMODO'},
+        {'_id': '432', 'widgetType': 'HEADING', 'pageId': '432', 'name': 'This is a header', 'size': '4', 'text': 'Lorem ipsum'},
         {
-            '_id': '345',
+            '_id': '543',
             'widgetType': 'IMAGE',
-            'pageId': '321',
+            'pageId': '543',
+            'name': 'This is an image',
             'width': '100%',
+            'text': 'Text',
             'url': 'http://lorempixel.com/400/200/'
         },
-        {'_id': '456', 'widgetType': 'HTML', 'pageId': '321', 'text': '<p>Lorem ipsum</p>'},
-        {'_id': '567', 'widgetType': 'HEADING', 'pageId': '321', 'size': '4', 'text': 'Lorem ipsum'},
+        {'_id': '654', 'widgetType': 'HEADING', 'pageId': '654', 'name': 'This is a header', 'size': '4', 'text': 'Lorem ipsum'},
+        {
+            '_id': '765',
+            'widgetType': 'YOUTUBE',
+            'pageId': '765',
+            'name': 'This is a video',
+            'width': '100%',
+            'text': 'Text',
+            'url': 'https://www.youtube.com/embed/APexI9Zb6iE'
+        },
+        {'_id': '876', 'widgetType': 'HEADING', 'pageId': '876', 'name': 'This is a header', 'size': '2', 'text': 'GIZMODO'},
+        {'_id': '987', 'widgetType': 'HEADING', 'pageId': '987', 'name': 'This is a header', 'size': '4', 'text': 'Lorem ipsum'},
+        {
+            '_id': '123',
+            'widgetType': 'IMAGE',
+            'pageId': '123',
+            'name': 'This is am image',
+            'width': '100%',
+            'text': 'Text',
+            'url': 'http://lorempixel.com/400/200/'
+        },
+        {'_id': '234', 'widgetType': 'HEADING', 'pageId': '234', 'name': 'This is a header', 'size': '4', 'text': 'Lorem ipsum'},
+        {
+            '_id': '345',
+            'widgetType': 'YOUTUBE',
+            'pageId': '345',
+            'name': 'This is a video',
+            'width': '100%',
+            'text': 'Text',
+            'url': 'https://www.youtube.com/embed/APexI9Zb6iE'
+        },
+        {'_id': '456', 'widgetType': 'HEADING', 'pageId': '456', 'name': 'This is a header', 'size': '2', 'text': 'GIZMODO'},
+        {'_id': '567', 'widgetType': 'HEADING', 'pageId': '567', 'name': 'This is a header', 'size': '4', 'text': 'Lorem ipsum'},
         {
             '_id': '678',
-            'widgetType': 'YOUTUBE',
-            'pageId': '321',
+            'widgetType': 'IMAGE',
+            'pageId': '678',
+            'name': 'This is an image',
             'width': '100%',
-            'url': 'https://youtu.be/AM2Ivdi9c4E'
+            'text': 'Text',
+            'url': 'http://lorempixel.com/400/200/'
         },
-        {'_id': '789', 'widgetType': 'HTML', 'pageId': '321', 'text': '<p>Lorem ipsum</p>'}
+        {'_id': '789', 'widgetType': 'HEADING', 'pageId': '789', 'name': 'This is a header', 'size': '4', 'text': 'Lorem ipsum'},
+        {
+            '_id': '890',
+            'widgetType': 'YOUTUBE',
+            'pageId': '890',
+            'name': 'This is a video',
+            'width': '100%',
+            'text': 'Text',
+            'url': 'https://www.youtube.com/embed/APexI9Zb6iE'
+        },
+        {
+            '_id': '901',
+            'widgetType': 'YOUTUBE',
+            'pageId': '901',
+            'name': 'This is a video',
+            'width': '100%',
+            'text': 'Text',
+            'url': 'https://www.youtube.com/embed/APexI9Zb6iE'
+        }
     ];
 
     api = {
@@ -39,6 +92,7 @@ export  class WidgetService {
 
     createWidget(pageId, widget) {
         this.widgets.push(widget);
+        return widget;
     }
 
     findWidgetByPageId(pageId) {
@@ -57,24 +111,26 @@ export  class WidgetService {
         for (const i in this.widgets) {
             if (this.widgets[i]._id === widgetId) {
                 switch (widget.widgetType) {
-                    case 'HEADER':
+                    case 'HEADING':
+                        this.widgets[i].name = widget.name;
                         this.widgets[i].text = widget.text;
                         this.widgets[i].size = widget.size;
                         return true;
 
                     case 'IMAGE':
+                        this.widgets[i].name = widget.name;
                         this.widgets[i].text = widget.text;
                         this.widgets[i].url = widget.url;
                         this.widgets[i].width = widget.width;
                         return true;
 
                     case 'YOUTUBE':
+                        this.widgets[i].name = widget.name;
                         this.widgets[i].text = widget.text;
                         this.widgets[i].url = widget.url;
                         this.widgets[i].width = widget.width;
                         return true;
                 }
-
             }
         }
         return false;

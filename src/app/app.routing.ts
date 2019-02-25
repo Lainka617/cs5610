@@ -14,10 +14,10 @@ import {WidgetChooserComponent} from './views/widget/widget-chooser/widget-choos
 import {WidgetHeadingComponent} from './views/widget/widget-edit/widget-heading/widget-heading.component';
 import {WidgetImageComponent} from './views/widget/widget-edit/widget-image/widget-image.component';
 import {WidgetYoutubeComponent} from './views/widget/widget-edit/widget-youtube/widget-youtube.component';
-import {AppComponent} from "./app.component";
+import {HomeComponent} from './home/home.component';
 
 const appRoutes: Routes = [​
-    { path: '', component: AppComponent},
+    { path: '', component: HomeComponent},
     { path: 'login', component: LoginComponent },
     { path: 'user/:uid', component: ProfileComponent },​
     { path: 'register', component: RegisterComponent },

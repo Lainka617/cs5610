@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WebsiteService } from '../../../services/website.service.client';
 import { ActivatedRoute } from '@angular/router';
 import { Website } from '../../../models/website.model.client';
-import { faUser, faChevronLeft, faCog, faPlus } from '@fortawesome/free-solid-svg-icons';
+// import { faUser, faChevronLeft, faCog, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-website-list',
@@ -13,10 +13,11 @@ export class WebsiteListComponent implements OnInit {
 
   userId: string;
   websites: Website[];
-  faUser = faUser;
-  faChevronLeft = faChevronLeft;
-  faCog = faCog;
-  faPlus = faPlus;
+  // faUser = faUser;
+  // faChevronLeft = faChevronLeft;
+  // faCog = faCog;
+  // faPlus = faPlus;
+
   constructor(private _websiteService: WebsiteService, private _activatedRoute: ActivatedRoute) {
   }
 
