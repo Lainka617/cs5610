@@ -20,6 +20,8 @@ app.use(function(req, res, next) {
   next();
 });
 
+require('./assignment/app')(app);
+
 const port = process.env.PORT || '3200';
 app.set('port', port);
 
@@ -28,4 +30,12 @@ app.set('port', port);
 const server = http.createServer(app);
 server.listen( port , () => console.log('Running on port 3200'));
 
-//require('./assignment/app')(app);
+
+
+// require('./test.js')(app);
+
+// require('./demo/app')(app);
+
+// function demo(req, res){var body=req.body;}
+
+

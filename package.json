@@ -12,11 +12,11 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/cli": "~7.2.3",
-    "@angular/compiler-cli": "^7.2.6",
     "@angular/animations": "~7.2.0",
+    "@angular/cli": "~7.2.3",
     "@angular/common": "~7.2.0",
     "@angular/compiler": "~7.2.0",
+    "@angular/compiler-cli": "^7.2.6",
     "@angular/core": "~7.2.0",
     "@angular/forms": "~7.2.0",
     "@angular/platform-browser": "~7.2.0",
@@ -26,14 +26,15 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
     "@fortawesome/free-solid-svg-icons": "^5.7.2",
     "add": "^2.0.6",
+    "body-parser": "^1.18.3",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "express": "^4.16.4",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
+    "typescript": "~3.2.2",
     "yarn": "^1.13.0",
-    "zone.js": "~0.8.26",
-    "typescript": "~3.2.2"
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.12.0",

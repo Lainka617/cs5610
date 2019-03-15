@@ -1,11 +1,12 @@
 import { Website } from '../models/website.model.client';
 import {Injectable} from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class WebsiteService {
 
-    constructor() {}
+    constructor(private http: HttpClient) {}
 
     websites = [
         {'_id': '123', 'name': 'Facebook', 'developerId': '123', 'description': 'Lorem1' },
@@ -26,55 +27,33 @@ export class WebsiteService {
         'deleteWebsite' : this.deleteWebsite
     };
 
-    createWebsite(userId: String, website: Website) {
-
-        const new_website: Website = {
-            _id: website._id,
-            name: website.name,
-            developerId: website.developerId,
-            description: website.description
-        };
-
-        this.websites.push(new_website);
+    createWebsite(userId: string, website: Website) {
+        return this.http.post( environment.baseUrl + '/api/user/' + userId + '/website', website);
     }
 
-    findWebsitesByUser(userId: String) {
-        const resultSet = [];
-        for ( const i in this.websites) {
-            if (this.websites[i].developerId === userId) {
-                resultSet.push(this.websites[i]);
-            }
-        }
-        return resultSet;
+    findWebsitesByUser(userId: string) {
+        return this.http.get(environment.baseUrl + '/api/user/:userId/website' + userId);
     }
 
-    findWebsitesByUser2(userId: String) {
-        return this.websites.filter(function (website) {
-            return website.developerId === userId;
-        });
+    findWebsitesById(websiteId: string) {
+        return this.http.get(environment.baseUrl + '/api/website/' + websiteId);
     }
 
-    findWebsitesById(websiteId: String) {
-        return this.websites.find(function (website) {
-            return website._id === websiteId;
-        });
+    updateWebsite(websiteId: string, website: Website) {
+        return this.http.put(
+            environment.baseUrl + '/api/website/' + websiteId,
+            null,
+            {
+                params: {
+                    id: websiteId,
+                    name: website.name,
+                    description: website.description
+                }
+            });
     }
 
-    updateWebsite(websiteId: String, website: Website) {
-        for (const i in this.websites) {
-            if (this.websites[i]._id === websiteId) {
-                this.websites[i].name = website.name;
-                this.websites[i].description = website.description;
-            }
-        }
-    }
 
-    deleteWebsite(websiteId: String) {
-        for (const i in this.websites) {
-            if (this.websites[i]._id === websiteId) {
-                const j = +i;
-                this.websites.splice(j, 1);
-            }
-        }
+    deleteWebsite(websiteId: string) {
+        return this.http.get(environment.baseUrl + '/api/website/' + websiteId);
     }
 }
