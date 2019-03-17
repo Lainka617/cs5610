@@ -32,9 +32,6 @@ const server = http.createServer(app);
 server.listen( port , () => console.log('Running on port 3200'));
 
 
-
-// require('./test.js')(app);
-
 // require('./demo/app')(app);
 
 // function demo(req, res){var body=req.body;}
