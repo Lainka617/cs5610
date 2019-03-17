@@ -32,7 +32,7 @@ export class WebsiteService {
     }
 
     findWebsitesByUser(userId: string) {
-        return this.http.get(environment.baseUrl + '/api/user/:userId/website' + userId);
+        return this.http.get(environment.baseUrl + '/api/user/' + userId + '/website');
     }
 
     findWebsitesById(websiteId: string) {
@@ -42,18 +42,13 @@ export class WebsiteService {
     updateWebsite(websiteId: string, website: Website) {
         return this.http.put(
             environment.baseUrl + '/api/website/' + websiteId,
-            null,
             {
-                params: {
-                    id: websiteId,
-                    name: website.name,
-                    description: website.description
-                }
+                name: website.name,
+                description: website.description
             });
     }
 
-
     deleteWebsite(websiteId: string) {
-        return this.http.get(environment.baseUrl + '/api/website/' + websiteId);
+        return this.http.delete(environment.baseUrl + '/api/website/' + websiteId);
     }
 }

@@ -45,16 +45,14 @@ export class UserService {
     updateUser(user: User) {
         return this.http.put(
             environment.baseUrl + '/api/user/' + user._id,
-            null,
             {
-                params: {
-                    name: user.username,
-                    password: user.password,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    email: user.email
-                }
-        });
+                username: user.username,
+                password: user.password,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email
+            }
+        );
     }
 
     deleteUserById(userId: string) {

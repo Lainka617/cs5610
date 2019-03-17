@@ -26,45 +26,33 @@ export class ProfileComponent implements OnInit {
   }
 
   updateUser() {
-    this._userService.updateUser(new User(this.userId, this.username, this.user.password, this.userFirstName, this.userLastName, this.userEmail));
-    this._userService.findUserById(this.userId).subscribe(
+    this._userService.updateUser(new User(this.userId, this.username, this.user.password, this.userFirstName, this.userLastName, this.userEmail)).subscribe(
         (user: User) => {
-          this.user = user;
-          this.username = this.user.username;
-          this.userEmail = this.user.email;
-          this.userFirstName = this.user.firstName;
-          this.userLastName = this.user.lastName;
-        }
-    );
-    console.log(this.user.username);
-    console.log(this.user.firstName);
-    console.log(this.user.lastName);
-    console.log(this.user.email);
-  }
-
-  // ngOnInit() {
-  //   this._router.params.subscribe(params => {
-  //     this.userId = params['uid'];
-  //     this.user = this._userService.findUserById(this.userId);
-  //     console.log('user id: ' + this.userId);
-  //   });
-  //
-  //   this.user = this._userService.findUserById(this.userId);
-  //   this.username = this.user.username;
-  //   this.userEmail = this.user.email;
-  //   this.userFirstName = this.user.firstName;
-  //   this.userLastName = this.user.lastName;
-  // }
-  ngOnInit() {
-    this._router.params.subscribe(params => {
-      return this._userService.findUserById(params['userId']).subscribe(
-          (user: User) => {
             this.user = user;
             this.username = this.user.username;
             this.userEmail = this.user.email;
             this.userFirstName = this.user.firstName;
             this.userLastName = this.user.lastName;
-        }
+        },
+        (error: any) => {
+            console.log(error);
+        });
+  }
+
+  ngOnInit() {
+    this._router.params.subscribe(params => {
+      return this._userService.findUserById(params['uid']).subscribe(
+          (user: User) => {
+            this.user = user;
+            this.userId = user._id;
+            this.username = this.user.username;
+            this.userEmail = this.user.email;
+            this.userFirstName = this.user.firstName;
+            this.userLastName = this.user.lastName;
+          },
+          (error: any) => {
+              console.log(error);
+          }
       );
     });
   }

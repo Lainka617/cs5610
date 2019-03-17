@@ -1,6 +1,6 @@
 'use strict';
 
-const getRandomId = require('../common');
+const common = require('../common');
 
 module.exports = function (app) {
 
@@ -25,15 +25,17 @@ module.exports = function (app) {
     function createWebsite(req, res) {
 
         const new_website = {
-            _id: getRandomId(1000),
+            _id: req.body._id,
             name: req.body.name,
-            developerId: req.params.developerId,
+            developerId: req.body.developerId,
             description: req.body.description
         };
-
+        console.log(new_website);
         websites.push(new_website);
         res.send(new_website);
+        return;
     }
+
     function findWebsitesByUser(req, res) {
         const resultSet = [];
         for (const i in websites) {
@@ -41,16 +43,20 @@ module.exports = function (app) {
                 resultSet.push(websites[i]);
             }
         }
-        res.send(resultSet);
-        return;
-        res.status(404).send("not found!");
+        if(resultSet.length == 0) {
+            res.status(404).send("not found!");
+        }
+        else {
+            res.send(resultSet);
+        }
+
     }
 
     function findWebsiteById(req, res) {
-        var id = req.params.userId;
+        var id = req.params.websiteId;
 
         for (var i in websites){
-            if(websites[i].developerId=== id){
+            if(websites[i]._id=== id){
                 res.send(websites[i]);
                 return;
             }
@@ -61,9 +67,10 @@ module.exports = function (app) {
     function updateWebsite(req, res) {
         for (const i in websites) {
             if (websites[i]._id === req.params.websiteId) {
-                websites[i].name = req.params.name;
-                websites[i].description = req.params.description;
+                websites[i].name = req.body.name;
+                websites[i].description = req.body.description;
                 res.send(websites[i]);
+                return;
             }
         }
         res.status(404).send("not found!");
@@ -73,8 +80,9 @@ module.exports = function (app) {
         for (const i in websites) {
             if (websites[i]._id === req.params.websiteId) {
                 const j = +i;
+                var temp = websites[i];
                 websites.splice(j, 1);
-                res.send("Delete succeed");
+                res.status(200).send(temp);
                 return;
             }
         }

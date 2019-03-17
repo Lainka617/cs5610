@@ -32,19 +32,18 @@ export class LoginComponent implements OnInit {
     alert(this.username);
 
     let user;
-    this.userService.findUserByCredential(this.username, this.password)
-        .subscribe((userData: User) => {
-          user = userData;
+    this.userService.findUserByCredential(this.username, this.password).subscribe(
+        (userData: User) => {
+            user = userData;
+            this.errorFlag = false;
+            console.log(this.username);
+            console.log(this.password);
+            this.router.navigate(['/user', user._id]);
+        },
+        (error: any) => {
+            console.log(error);
+            this.errorFlag = true;
         });
-
-    console.log(this.username);
-    console.log(this.password);
-
-    if (user) {
-      this.router.navigate(['/user', user._id]);
-    } else {
-      this.errorFlag = true;
-    }
   }
 
   ngOnInit() {

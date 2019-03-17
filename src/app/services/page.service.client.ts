@@ -32,13 +32,9 @@ export class PageService {
     updatePage(pageId: string, page: Page) {
         return this.http.put(
             environment.baseUrl + '/api/page/' + pageId,
-            null,
             {
-                params: {
-                    id: pageId,
-                    name: page.name,
-                    description: page.description
-                }
+                name: page.name,
+                description: page.description
             });
     }
 

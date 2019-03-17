@@ -10,7 +10,7 @@
       </a>
     </div>
     <div class="navbar-text pull-right">
-      <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget" (click)="update()" class="cl-icon-padding cl-text-black">
+      <a routerLink="" (click)="update()" class="cl-icon-padding cl-text-black">
           <span class="fas fa-check fontawsome_icon">
           </span>
       </a>
@@ -22,7 +22,7 @@
 </nav>
 
   <div class="container wedget-edit-padding">
-    <form (ngSubmit)="delete()" #f="ngForm" class="form-label">
+    <form #f="ngForm" class="form-label">
 
       <div class="form-group">
         <label for="youtube-name">Name</label>
@@ -45,7 +45,7 @@
       </div>
 
       <div class="form-group">
-        <a class="btn btn-danger btn-block" routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget" (click)="delete()">Delete</a>
+        <a class="btn btn-danger btn-block" routerLink="" (click)="delete()">Delete</a>
       </div>
     </form>
   </div>

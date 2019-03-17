@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { WebsiteService } from '../../../services/website.service.client';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Website } from '../../../models/website.model.client';
-// import { faUser, faChevronLeft, faCog, faPlus, faCheck } from '@fortawesome/free-solid-svg-icons';
+import {getRandomId} from '../../../common';
 
 @Component({
   selector: 'app-website-new',
@@ -18,7 +18,7 @@ export class WebsiteNewComponent implements OnInit {
   websiteName: string;
   websiteDes: string;
 
-  constructor(private _websiteService: WebsiteService, private _activatedRoute: ActivatedRoute) { }
+  constructor(private _websiteService: WebsiteService, private _activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
 
@@ -27,16 +27,29 @@ export class WebsiteNewComponent implements OnInit {
       console.log('website id: ' + this.userId);
     });
 
-    this.websites = this._websiteService.findWebsitesByUser(this.userId);
+    this._websiteService.findWebsitesByUser(this.userId).subscribe(
+        (data: Website[]) => {
+          console.log(data);
+          this.websites = data;
+        },
+        (error: any) => {
+          console.log(error);
+        });
   }
 
   addWebsite () {
     // generate id for new website, just use 321 by now.
     // will add random unique id generating logic later
-    this._websiteService.createWebsite(this.userId, new Website('321', this.websiteName, this.userId, this.websiteDes));
-    let websiteTest = this._websiteService.findWebsitesById('321');
-    console.log(websiteTest.name);
-    console.log(websiteTest.description);
+    this._websiteService.createWebsite(this.userId, new Website(getRandomId(1000), this.websiteName, this.userId, this.websiteDes)).subscribe(
+        (data: Website) => {
+          console.log(data);
+          this.websites.push(data);
+          this.router.navigate(['/user/' + this.userId + '/website']);
+        },
+        (error: any) => {
+          console.log(error);
+        });
+
   }
 }
 

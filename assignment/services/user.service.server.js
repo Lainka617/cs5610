@@ -80,7 +80,7 @@ module.exports = function (app) {
 
     function createUser(req, res) {
         var newUser = {
-            _id: common.getRandomId(1000),
+            _id: req.body._id,
             username: req.body.username,
             password: req.body.password,
             firstName: req.body.firstName,

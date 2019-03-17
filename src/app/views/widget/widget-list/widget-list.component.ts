@@ -3,6 +3,7 @@ import { WidgetService } from '../../../services/widget.service.client';
 import { ActivatedRoute } from '@angular/router';
 import { Widget } from '../../../models/widget.model.client';
 import {DomSanitizer} from '@angular/platform-browser';
+import {Page} from "../../../models/page.model.client";
 
 @Component({
   selector: 'app-widget-list',
@@ -28,19 +29,26 @@ export class WidgetListComponent implements OnInit {
         }
     );
 
-    const temp: Widget[] = this._widgetService.findWidgetByPageId(this.pageId);
+    let temp: Widget[];
     this.widgets = [];
-    temp.forEach( widget => {
-
-        this.widgets.push(new Widget(widget._id, widget.widgetType, widget.pageId, widget.name, widget.size, widget.text, widget.width, widget.url));
-        console.log(this.widgets[this.widgets.length - 1].text);
-        if (widget.url) {
-            try {
-                this.widgets[this.widgets.length - 1].url = this.sanitizer.bypassSecurityTrustResourceUrl(widget.url);
-            } catch (e) {
-                console.log(e.toString());
-            }
-        }
-    });
+    this._widgetService.findWidgetByPageId(this.pageId).subscribe(
+        (data: Widget[]) => {
+            console.log(data);
+            temp = data;
+            temp.forEach( widget => {
+                this.widgets.push(new Widget(widget._id, widget.widgetType, widget.pageId, widget.name, widget.size, widget.text, widget.width, widget.url));
+                console.log(this.widgets[this.widgets.length - 1].text);
+                if (widget.url) {
+                    try {
+                        this.widgets[this.widgets.length - 1].url = this.sanitizer.bypassSecurityTrustResourceUrl(widget.url);
+                    } catch (e) {
+                        console.log(e.toString());
+                    }
+                }
+            });
+        },
+        (error: any) => {
+            console.log(error);
+        });
   }
 }

@@ -1,8 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm} from "@angular/forms";
-import {UserService} from "../../../services/user.service.client";
-import {Router} from "@angular/router";
-import {User} from "../../../models/user.model.client";
+import {NgForm} from '@angular/forms';
+import {UserService} from '../../../services/user.service.client';
+import {Router} from '@angular/router';
+import {User} from '../../../models/user.model.client';
+import {getRandomId} from '../../../common';
 
 @Component({
   selector: 'app-register',
@@ -42,16 +43,17 @@ export class RegisterComponent implements OnInit {
     } else {
       // generate id for new user, just use 909 by now.
       // will add random unique id generating logic later
-      const user: User = new User('909', this.username, this.password, this.firstName, this.lastName, this.email);
-      this.userService.createUser(user);
-      let userTest: User = this.userService.findUserById(user._id);
-
-      this.router.navigate(['/user', user._id]);
-      console.log(userTest.username);
-      console.log(userTest.firstName);
-      console.log(userTest.lastName);
-      console.log(userTest.email);
-      console.log(this.password);
+      const user: User = new User(getRandomId(1000), this.username, this.password, this.firstName, this.lastName, this.email);
+      this.userService.createUser(user).subscribe(
+          (userData: User) => {
+            this.errorFlag = false;
+            console.log(userData);
+            this.router.navigate(['/user', user._id]);
+          },
+          (error: any) => {
+            console.log(error);
+            this.errorFlag = true;
+          });
     }
   }
 

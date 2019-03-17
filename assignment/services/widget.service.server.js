@@ -1,6 +1,6 @@
 'use strict';
 
-const getRandomId = require('../common');
+const common = require('../common');
 
 module.exports = function (app) {
 
@@ -8,7 +8,7 @@ module.exports = function (app) {
     app.post("/api/page/:pageId/widget", createWidget);
     app.get("/api/page/:pageId/widget", findWidgetByPageId); // change the name"findAllWidgetsForPage" to "findWidgetByWidgetId" to make it more clear
     app.get("/api/widget/:widgetId", findWidgetById);
-    app.put("/api/widget/:widgetId", updateWidget)
+    app.put("/api/widget/:widgetId", updateWidget);
     app.delete("/api/widget/:widgetId", deleteWidget);
 
     var widgets = [
@@ -88,63 +88,95 @@ module.exports = function (app) {
 
     //function list
     function createWidget(req, res) {
-        const new_widget = {
-            _id: getRandomId(1000),
-            name: req.body.name,
-            pageId: req.params.pageId,
-            description: req.body.description
-        };
-        widgets.push(widget);
-        res.send(widget);;
+        console.log(req.body);
+        var new_widget;
+        switch (req.body.widgetType) {
+            case 'HEADING':
+                new_widget = {
+                    _id: req.body._id,
+                    widgetType: req.body.widgetType,
+                    pageId: req.body.pageId,
+                    name: req.body.name,
+                    text: req.body.text,
+                    size: req.body.size
+                };
+                break;
+            case 'IMAGE':
+                new_widget = {
+                    _id: req.body._id,
+                    widgetType: req.body.widgetType,
+                    pageId: req.body.pageId,
+                    name: req.body.name,
+                    text: req.body.text,
+                    url: req.body.url,
+                    width: req.body.width
+                };
+                break;
+            case 'YOUTUBE':
+                new_widget = {
+                    _id: req.body._id,
+                    widgetType: req.body.widgetType,
+                    pageId: req.body.pageId,
+                    name: req.body.name,
+                    text: req.body.text,
+                    url: req.body.url,
+                    width: req.body.width
+                };
+                break;
+        }
+        console.log(new_widget);
+        widgets.push(new_widget);
+        res.send(new_widget);
     }
 
     function findWidgetByPageId(req, res) {
-    const resultSet = [];
-    for (const i in widgets) {
-        if (widgets[i].pageId === req.params.pageId) {
-            resultSet.push(widgets[i]);
+        const resultSet = [];
+        for (const i in widgets) {
+            if (widgets[i].pageId === req.params.pageId) {
+                resultSet.push(widgets[i]);
+            }
         }
-    }
-    res.send(resultSet);
-    return;
-    res.status(404).send("not found!");
+        res.send(resultSet);
+        return;
+        res.status(404).send("not found!");
     }
 
     function findWidgetById(req, res) {
-        res.send(
-            widgets.find(
-                function (widget) {
-                    return widget._id === req.params.widgetId;
-                }
-            )
-        );
+        var id = req.params.widgetId;
+
+        for (var i in widgets){
+            if(widgets[i]._id=== id){
+                res.send(widgets[i]);
+                return;
+            }
+        }
         res.status(404).send("not found!");
     }
 
     function updateWidget(req, res) {
         for (const i in widgets) {
             if (widgets[i]._id === req.params.widgetId) {
-                switch (widget.widgetType) {
+                switch (widgets[i].widgetType) {
                     case 'HEADING':
-                        widgets[i].name = req.params.name;
-                        widgets[i].text = req.params.text;
-                        widgets[i].size = req.params.size;
+                        widgets[i].name = req.body.name;
+                        widgets[i].text = req.body.text;
+                        widgets[i].size = req.body.size;
                         res.send(widgets[i]);
                         return;
 
                     case 'IMAGE':
-                        widgets[i].name = req.params.name;
-                        widgets[i].text = req.params.text;
-                        widgets[i].url = req.params.url;
-                        widgets[i].width = req.params.width;
+                        widgets[i].name = req.body.name;
+                        widgets[i].text = req.body.text;
+                        widgets[i].url = req.body.url;
+                        widgets[i].width = req.body.width;
                         res.send(widgets[i]);
                         return;
 
                     case 'YOUTUBE':
-                        widgets[i].name = req.params.name;
-                        widgets[i].text = req.params.text;
-                        widgets[i].url = req.params.url;
-                        widgets[i].width = req.params.width;
+                        widgets[i].name = req.body.name;
+                        widgets[i].text = req.body.text;
+                        widgets[i].url = req.body.url;
+                        widgets[i].width = req.body.width;
                         res.send(widgets[i]);
                         return;
                 }
@@ -157,14 +189,12 @@ module.exports = function (app) {
         for (const i in widgets) {
             if (widgets[i]._id === req.params.widgetId) {
                 const j = +i;
+                var temp = widgets[i];
                 widgets.splice(j, 1);
-                res.send("Delete succeed!");
+                res.send(temp);
                 return;
             }
         }
         res.status(404).send("not found!");
-        }
-
-
-
+    }
 }

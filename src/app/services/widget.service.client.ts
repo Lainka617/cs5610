@@ -106,24 +106,47 @@ export  class WidgetService {
     }
 
     updateWidget(widgetId, widget) {
-        return this.http.put(
-            environment.baseUrl + '/api/widget/' + widgetId,
-            null,
-            {
-                params: {
+        let body;
+
+        switch (widget.widgetType) {
+            case 'HEADING':
+                body = {
+                    _id: widget._id,
+                    widgetType: widget.widgetType,
+                    pageId: widget.pageId,
                     name: widget.name,
                     text: widget.text,
                     size: widget.size
-                }
-            });
+                };
+                break;
+            case 'IMAGE':
+                body = {
+                    _id: widget._id,
+                    widgetType: widget.widgetType,
+                    pageId: widget.pageId,
+                    name: widget.name,
+                    text: widget.text,
+                    url: widget.url,
+                    width: widget.width
+                };
+                break;
+            case 'YOUTUBE':
+                body = {
+                    _id: widget._id,
+                    widgetType: widget.widgetType,
+                    pageId: widget.pageId,
+                    name: widget.name,
+                    text: widget.text,
+                    url: widget.url,
+                    width: widget.width
+                };
+                break;
+        }
+        return this.http.put(
+            environment.baseUrl + '/api/widget/' + widgetId, body);
     }
 
     deleteWidget(widgetId) {
-        for (const i in this.widgets) {
-            if (this.widgets[i]._id === widgetId) {
-                const j = +i;
-                this.widgets.splice(j, 1);
-            }
-        }
+        return this.http.delete(environment.baseUrl + '/api/widget/' + widgetId);
     }
 }

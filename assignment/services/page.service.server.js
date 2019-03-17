@@ -1,6 +1,6 @@
 'use strict';
 
-const getRandomId = require('../common');
+const common = require('../common');
 
 module.exports = function (app) {
 
@@ -33,7 +33,7 @@ module.exports = function (app) {
     function createPage(req, res) {
 
         const new_page = {
-            _id: getRandomId(1000),
+            _id: req.body._id,
             name: req.body.name,
             websiteId: req.params.websiteId,
             description: req.body.description
@@ -56,21 +56,22 @@ module.exports = function (app) {
     }
 
     function findPageById(req, res) {
-        res.send(
-            pages.find(
-                function (page) {
-                    return page._id === req.params.pageId;
-                }
-            )
-        );
+        var id = req.params.pageId;
+
+        for (var i in pages){
+            if(pages[i]._id=== id){
+                res.send(pages[i]);
+                return;
+            }
+        }
         res.status(404).send("not found!");
     }
 
     function updatePage(req, res) {
         for (const i in pages) {
             if (pages[i]._id === req.params.pageId) {
-                pages[i].name = req.params.name;
-                pages[i].description = req.params.description;
+                pages[i].name = req.body.name;
+                pages[i].description = req.body.description;
                 res.send(pages[i]);
                 return;
             }
@@ -82,8 +83,9 @@ module.exports = function (app) {
         for (const i in pages) {
             if (pages[i]._id === req.params.pageId) {
                 const j = +i;
+                var temp = pages[i];
                 pages.splice(j, 1);
-                res.send("Delete succeed!");
+                res.send(temp);
                 return;
             }
         }
