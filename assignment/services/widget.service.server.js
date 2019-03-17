@@ -1,8 +1,9 @@
 'use strict';
 
-const common = require('../common');
 
 module.exports = function (app) {
+    let multerInstance = require('multer');
+    let upload = multerInstance({ dest: __dirname+'/../../public/uploads' });
 
     //widget related api
     app.post("/api/page/:pageId/widget", createWidget);
@@ -10,8 +11,10 @@ module.exports = function (app) {
     app.get("/api/widget/:widgetId", findWidgetById);
     app.put("/api/widget/:widgetId", updateWidget);
     app.delete("/api/widget/:widgetId", deleteWidget);
+    app.put("/api/page/:pageId/widget", reorderWidgets);
+    app.post("/api/upload", upload.single('imageUpload'), uploadImage);
 
-    var widgets = [
+    let widgets = [
         {'_id': '321', 'widgetType': 'HEADING', 'pageId': '321', 'name': 'This is a header', 'size': '2', 'text': 'GIZMODO'},
         {'_id': '432', 'widgetType': 'HEADING', 'pageId': '432', 'name': 'This is a header', 'size': '4', 'text': 'Lorem ipsum'},
         {
@@ -89,7 +92,7 @@ module.exports = function (app) {
     //function list
     function createWidget(req, res) {
         console.log(req.body);
-        var new_widget;
+        let new_widget;
         switch (req.body.widgetType) {
             case 'HEADING':
                 new_widget = {
@@ -142,9 +145,9 @@ module.exports = function (app) {
     }
 
     function findWidgetById(req, res) {
-        var id = req.params.widgetId;
+        let id = req.params.widgetId;
 
-        for (var i in widgets){
+        for (let i in widgets){
             if(widgets[i]._id=== id){
                 res.send(widgets[i]);
                 return;
@@ -189,12 +192,67 @@ module.exports = function (app) {
         for (const i in widgets) {
             if (widgets[i]._id === req.params.widgetId) {
                 const j = +i;
-                var temp = widgets[i];
+                let temp = widgets[i];
                 widgets.splice(j, 1);
                 res.send(temp);
                 return;
             }
         }
         res.status(404).send("not found!");
+    }
+
+    function reorderWidgets(req, res) {
+        let startIndex = req.query['initial'];
+        let endIndex = req.query['final'];
+        widgets = req.body;
+        res.send(widgets);
+    }
+
+    function uploadImage(req, res) {
+        console.log(req.body);
+        console.log(req.file);
+        let widgetId = req.body.widgetId;
+        let myFile = req.file;
+
+        let userId = req.body.userId;
+        let websiteId = req.body.websiteId;
+        let pageId = req.body.pageId;
+
+        let originalname = myFile.originalname; // file name on user's computer
+        let filename = myFile.filename; // new file name in upload folder
+        let path = myFile.path; // full path of uploaded file 
+        let destination = myFile.destination; // folder where file is saved to 
+        let size = myFile.size;
+        let mimetype = myFile.mimetype; 
+        
+        let widget;
+        for (let i in widgets) {
+            if (widgets[i]._id === widgetId) {
+                widgets[i].name = req.body.imageName;
+                widgets[i].text = req.body.imageText;
+                widgets[i].url = req.body.imageUrl;
+                widgets[i].width = req.body.imageWidth;
+                widget = widgets[i];
+                break;
+            }
+        }
+        if(!widget){
+            widget = {
+                _id: widgetId,
+                widgetType: 'IMAGE',
+                pageId: pageId,
+                name: req.body.imageName,
+                text: req.body.imageText,
+                url: req.body.imageUrl,
+                width: req.body.imageWidth
+            };
+            console.log(widget);
+            widgets.push(widget);
+        }
+        widget.url = req.body.baseUrl + '/uploads/' + filename;
+
+        let callbackUrl = req.body.baseUrl.replace('3200', '4200') + "/user/"+userId+"/website/"+websiteId+'/page/'+pageId+'/widget/'+widgetId+'/image';
+
+        res.redirect(callbackUrl);
     }
 }

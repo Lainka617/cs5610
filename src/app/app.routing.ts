@@ -1,5 +1,4 @@
 import { Routes, RouterModule } from '@angular/router';
-// import {ModuleWithProviders} from '@angular/core';
 import {LoginComponent} from './views/user/login/login.component';
 import {ProfileComponent} from './views/user/profile/profile.component';
 import {RegisterComponent} from './views/user/register/register.component';

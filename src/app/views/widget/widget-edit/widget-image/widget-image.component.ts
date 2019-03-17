@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Widget } from '../../../../models/widget.model.client';
 import { WidgetService } from '../../../../services/widget.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-widget-image',
@@ -19,8 +19,11 @@ export class WidgetImageComponent implements OnInit {
   imageText: string;
   imageUrl: string;
   imageWidth: string;
+  baseUrl: string;
 
-  constructor(private _widgetService: WidgetService, private _activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private _widgetService: WidgetService, private _activatedRoute: ActivatedRoute, private router: Router) {
+      this.baseUrl = environment.baseUrl;
+  }
 
   ngOnInit() {
     this._activatedRoute.params.subscribe(

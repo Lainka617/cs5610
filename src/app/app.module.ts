@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
-// import { TestService } from './services/test.service.client';
+
 import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
@@ -29,6 +29,8 @@ import { PageService } from './services/page.service.client';
 import { WidgetService } from './services/widget.service.client';
 import { HomeComponent } from './home/home.component';
 
+import {SortableDirective} from './views/widget/widget-list/sortable.directive';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { HomeComponent } from './home/home.component';
     WidgetImageComponent,
     WidgetListComponent,
     WidgetYoutubeComponent,
-    HomeComponent
+    HomeComponent,
+    SortableDirective,
   ],
   imports: [
     BrowserModule,

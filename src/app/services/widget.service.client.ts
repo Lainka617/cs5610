@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import { Widget } from '../models/widget.model.client';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import {Page} from "../models/page.model.client";
 
 @Injectable()
 export  class WidgetService {
@@ -148,5 +147,9 @@ export  class WidgetService {
 
     deleteWidget(widgetId) {
         return this.http.delete(environment.baseUrl + '/api/widget/' + widgetId);
+    }
+
+    reorderWidgets(pageId, index1, index2, widgets) {
+        return this.http.put(environment.baseUrl + '/api/page/' + pageId + '/widget?initial=' + index1 + '&final=' + index2, widgets);
     }
 }
