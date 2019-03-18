@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Point static path to dist -- For building -- REMOVE
 app.use(express.static(path.join(__dirname, 'dist/web-maker')));
-//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // CORS
 app.use(function(req, res, next) {
@@ -21,7 +21,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-//require('./assignment/app')(app);
+require('./assignment/app')(app);
 
 const port = process.env.PORT || '3200';
 app.set('port', port);
