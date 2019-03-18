@@ -19,13 +19,10 @@ export class WidgetImageComponent implements OnInit {
   imageText: string;
   imageUrl: string;
   imageWidth: string;
-  baseUrl: any;
+  baseUrl: string;
 
   constructor(private _widgetService: WidgetService, private _activatedRoute: ActivatedRoute, private router: Router) {
-      this.baseUrl = {
-          server: environment.baseUrl,
-          frontend: environment.frontendUrl
-      };
+      this.baseUrl = environment.baseUrl;
   }
 
   ngOnInit() {
