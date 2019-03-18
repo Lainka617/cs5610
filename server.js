@@ -23,6 +23,10 @@ app.use(function(req, res, next) {
 
 require('./assignment/app')(app);
 
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'dist/web-maker/index.html'));
+});
+
 const port = process.env.PORT || '3200';
 app.set('port', port);
 
