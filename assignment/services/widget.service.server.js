@@ -249,9 +249,9 @@ module.exports = function (app) {
             console.log(widget);
             widgets.push(widget);
         }
-        widget.url = req.body.baseUrl + '/uploads/' + filename;
+        widget.url = req.body.baseUrl.server + '/uploads/' + filename;
 
-        let callbackUrl = req.body.baseUrl.replace('3200', '4200') + "/user/"+userId+"/website/"+websiteId+'/page/'+pageId+'/widget/'+widgetId+'/image';
+        let callbackUrl = req.body.baseUrl.frontend + "/user/"+userId+"/website/"+websiteId+'/page/'+pageId+'/widget/'+widgetId+'/image';
 
         res.redirect(callbackUrl);
     }
