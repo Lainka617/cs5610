@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Widget } from '../../../../models/widget.model.client';
 import { WidgetService } from '../../../../services/widget.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
-import {Page} from '../../../../models/page.model.client';
-import {getRandomId} from "../../../../common";
+import {getRandomId} from '../../../../common';
 
 @Component({
   selector: 'app-widget-heading',

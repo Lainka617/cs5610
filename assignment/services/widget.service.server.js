@@ -128,6 +128,14 @@ module.exports = function (app) {
                     width: req.body.width
                 };
                 break;
+            case 'HTML':
+                new_widget = {
+                    widgetType: req.body.widgetType,
+                    pageId: req.body.pageId,
+                    name: req.body.name,
+                    text: req.body.text,
+                };
+                break;
         }
 
         widgetModel
@@ -205,6 +213,12 @@ module.exports = function (app) {
                     text: req.body.text,
                     url: req.body.url,
                     width: req.body.width
+                };
+                break;
+            case 'HTML':
+                update_widget = {
+                    name: req.body.name,
+                    text: req.body.text,
                 };
                 break;
         }

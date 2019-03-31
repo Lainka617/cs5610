@@ -33,8 +33,8 @@
               </div>
               <h1>{{widget.text}}</h1>
           </div>
-          <div *ngSwitchCase="'YOUTUBE'">
-            <div class="embed-responsive embed-responsive-16by9">
+          <div *ngSwitchCase="'YOUTUBE'" class="youtube-widget">
+            <div>
               <iframe width="{{widget.width}}" height="360" [src]="widget.url" frameborder="0" allowfullscreen></iframe>
               <a href="#" class="pull-right">
                 <span class="fas fa-bars fontawsome_icon" style="background-color:white; position:relative"></span>
@@ -53,6 +53,17 @@
                 </a>
                 <img class="img-responsive img-rounded cl-widget-images"
                      [src]="widget.url">
+          </div>
+          <div *ngSwitchCase="'HTML'">
+            <div class="pull-right">
+              <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget/{{widget._id}}/html" class="pull-right">
+                <span class="fas fa-bars fontawsome_icon"></span>
+              </a>
+              <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget/{{widget._id}}/html" class="pull-right">
+                <span class="fas fa-cog fontawsome_icon"></span>
+              </a>
+            </div>
+            <div class="container" [innerHTML]="widget.text"></div>
           </div>
         </div>
       </div>

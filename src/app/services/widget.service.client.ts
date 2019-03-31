@@ -139,6 +139,15 @@ export  class WidgetService {
                     width: widget.width
                 };
                 break;
+            case 'HTML':
+                body = {
+                    _id: widget._id,
+                    widgetType: widget.widgetType,
+                    pageId: widget.pageId,
+                    name: widget.name,
+                    text: widget.text,
+                };
+                break;
         }
         return this.http.put(
             environment.baseUrl + '/api/widget/' + widgetId, body);

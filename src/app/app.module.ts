@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
+import { QuillEditorModule } from 'ngx-quill-editor';
 
 import { routing } from './app.routing';
 
@@ -21,7 +22,7 @@ import { WidgetHeadingComponent } from './views/widget/widget-edit/widget-headin
 import { WidgetImageComponent } from './views/widget/widget-edit/widget-image/widget-image.component';
 import { WidgetListComponent } from './views/widget/widget-list/widget-list.component';
 import { WidgetYoutubeComponent } from './views/widget/widget-edit/widget-youtube/widget-youtube.component';
-
+import { WidgetHtmlComponent } from './views/widget/widget-edit/widget-html/widget-html.component';
 
 // client service
 import { UserService } from './services/user.service.client';
@@ -54,9 +55,11 @@ import {FlickrService} from './services/flickr.service.client';
     WidgetYoutubeComponent,
     HomeComponent,
     SortableDirective,
-    FlickrImageSearchComponent
+    FlickrImageSearchComponent,
+    WidgetHtmlComponent
   ],
   imports: [
+    QuillEditorModule,
     BrowserModule,
     FormsModule,
     FontAwesomeModule,
