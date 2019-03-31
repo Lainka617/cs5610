@@ -30,7 +30,7 @@ export class PageListComponent implements OnInit {
     this._pageService.findPageByWebsiteId(this.websiteId).subscribe(
         (data: Page[]) => {
             console.log(data);
-            this.pages = data;
+            this.pages = data == null ? [] : data;
         },
         (error: any) => {
             console.log(error);

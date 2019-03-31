@@ -14,7 +14,7 @@ export class WebsiteNewComponent implements OnInit {
 
   @ViewChild('f') editForm: NgForm;
   userId: string;
-  websites: any[];
+  websites: any[] = [];
   websiteName: string;
   websiteDes: string;
 
@@ -30,7 +30,7 @@ export class WebsiteNewComponent implements OnInit {
     this._websiteService.findWebsitesByUser(this.userId).subscribe(
         (data: Website[]) => {
           console.log(data);
-          this.websites = data;
+          this.websites = data == null ? [] : data;
         },
         (error: any) => {
           console.log(error);

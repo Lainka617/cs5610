@@ -34,6 +34,10 @@ app.set('port', port);
 const server = http.createServer(app);
 server.listen( port , () => console.log('Running on port 3200'));
 
+var connectionString = 'mongodb://127.0.0.1:27017/webdev';
+var mongoose = require ('mongoose');
+var db = mongoose.connect('mongodb://localhost:27017/webdev',{useNewUrlParser:true});
+
 
 // require('./demo/app')(app);
 

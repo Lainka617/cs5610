@@ -34,19 +34,21 @@ export class WidgetListComponent implements OnInit {
         this._widgetService.findWidgetByPageId(this.pageId).subscribe(
             (data: Widget[]) => {
                 console.log(data);
-                temp = data;
-                temp.forEach( widget => {
-                    this.widgets.push(new Widget(widget._id, widget.widgetType, widget.pageId, widget.name, widget.size, widget.text, widget.width, widget.url));
-                    this.widgetsII.push(new Widget(widget._id, widget.widgetType, widget.pageId, widget.name, widget.size, widget.text, widget.width, widget.url));
-                    console.log(this.widgets[this.widgets.length - 1].text);
-                    if (widget.url) {
-                        try {
-                            this.widgets[this.widgets.length - 1].url = this.sanitizer.bypassSecurityTrustResourceUrl(widget.url);
-                        } catch (e) {
-                            console.log(e.toString());
+                if (data != null) {
+                    temp = data;
+                    temp.forEach(widget => {
+                        this.widgets.push(new Widget(widget._id, widget.widgetType, widget.pageId, widget.name, widget.size, widget.text, widget.width, widget.url));
+                        this.widgetsII.push(new Widget(widget._id, widget.widgetType, widget.pageId, widget.name, widget.size, widget.text, widget.width, widget.url));
+                        console.log(this.widgets[this.widgets.length - 1].text);
+                        if (widget.url) {
+                            try {
+                                this.widgets[this.widgets.length - 1].url = this.sanitizer.bypassSecurityTrustResourceUrl(widget.url);
+                            } catch (e) {
+                                console.log(e.toString());
+                            }
                         }
-                    }
-                });
+                    });
+                }
             },
             (error: any) => {
                 console.log(error);

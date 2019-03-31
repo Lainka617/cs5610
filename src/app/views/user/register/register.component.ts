@@ -44,11 +44,12 @@ export class RegisterComponent implements OnInit {
       // generate id for new user, just use 909 by now.
       // will add random unique id generating logic later
       const user: User = new User(getRandomId(1000), this.username, this.password, this.firstName, this.lastName, this.email);
+      delete user._id;
       this.userService.createUser(user).subscribe(
-          (userData: User) => {
+          (userData: any) => {
             this.errorFlag = false;
             console.log(userData);
-            this.router.navigate(['/user', user._id]);
+            this.router.navigate(['/user/', userData._id]);
           },
           (error: any) => {
             console.log(error);

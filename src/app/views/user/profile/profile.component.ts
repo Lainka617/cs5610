@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { UserService } from '../../../services/user.service.client';
 import { User } from '../../../models/user.model.client';
 // import { faUser, faCheck } from '@fortawesome/free-solid-svg-icons';
@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
   // faUser = faUser;
   // faCheck = faCheck;
 
-  constructor(private _userService: UserService, private _router: ActivatedRoute) {
+  constructor(private _userService: UserService, private _router: ActivatedRoute, private router: Router) {
 
   }
 
@@ -37,6 +37,14 @@ export class ProfileComponent implements OnInit {
         (error: any) => {
             console.log(error);
         });
+  }
+
+  deleteUser(){
+      this._userService.deleteUserById(this.userId).subscribe(
+          (data: any) => {
+              this.router.navigate(['/register']);
+          }
+      );
   }
 
   ngOnInit() {

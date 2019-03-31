@@ -20,6 +20,7 @@ export class WidgetImageComponent implements OnInit {
   imageUrl: string;
   imageWidth: string;
   baseUrl: string;
+  imageNewUrl: string;
 
   constructor(private _widgetService: WidgetService, private _activatedRoute: ActivatedRoute, private router: Router) {
       this.baseUrl = environment.baseUrl;
@@ -34,14 +35,16 @@ export class WidgetImageComponent implements OnInit {
           this.widgetId = params['wgid'];
         }
     );
+    this.imageNewUrl = this._activatedRoute.snapshot.paramMap.get('imageUrl');
+
     this._widgetService.findWidgetById(this.widgetId).subscribe(
         (data: Widget) => {
           console.log(data);
           this.widget = data;
-          if(this.widget) {
+          if (this.widget) {
             this.imageName = this.widget.name;
             this.imageText = this.widget.text;
-            this.imageUrl = this.widget.url;
+            this.imageUrl = this.imageNewUrl == null ? this.widget.url : this.imageNewUrl;
             this.imageWidth = this.widget.width;
           }
         },

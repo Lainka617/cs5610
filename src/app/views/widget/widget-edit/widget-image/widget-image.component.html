@@ -21,6 +21,8 @@
   </nav>
 
   <div class="container wedget-edit-padding">
+    <button class="btn btn-warning btn-block" routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget/{{widgetId}}/image/search">Search Image</button>
+
     <form ngNoForm action="{{baseUrl}}/api/upload" method="post" enctype="multipart/form-data" class="form-label">
 
       <div class="form-group">

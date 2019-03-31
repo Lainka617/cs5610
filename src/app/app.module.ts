@@ -22,6 +22,7 @@ import { WidgetImageComponent } from './views/widget/widget-edit/widget-image/wi
 import { WidgetListComponent } from './views/widget/widget-list/widget-list.component';
 import { WidgetYoutubeComponent } from './views/widget/widget-edit/widget-youtube/widget-youtube.component';
 
+
 // client service
 import { UserService } from './services/user.service.client';
 import { WebsiteService } from './services/website.service.client';
@@ -30,6 +31,8 @@ import { WidgetService } from './services/widget.service.client';
 import { HomeComponent } from './home/home.component';
 
 import {SortableDirective} from './views/widget/widget-list/sortable.directive';
+import {FlickrImageSearchComponent} from './views/widget/widget-edit/widget-image/flickr-image-search.component';
+import {FlickrService} from './services/flickr.service.client';
 
 
 @NgModule({
@@ -51,6 +54,7 @@ import {SortableDirective} from './views/widget/widget-list/sortable.directive';
     WidgetYoutubeComponent,
     HomeComponent,
     SortableDirective,
+    FlickrImageSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,7 @@ import {SortableDirective} from './views/widget/widget-list/sortable.directive';
     HttpClientModule,
     routing
   ],
-  providers: [UserService, WebsiteService, PageService, WidgetService],
+  providers: [UserService, WebsiteService, PageService, WidgetService, FlickrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

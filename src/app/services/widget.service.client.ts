@@ -106,7 +106,6 @@ export  class WidgetService {
 
     updateWidget(widgetId, widget) {
         let body;
-
         switch (widget.widgetType) {
             case 'HEADING':
                 body = {
