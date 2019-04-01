@@ -136,6 +136,17 @@ module.exports = function (app) {
                     text: req.body.text,
                 };
                 break;
+            case 'INPUT':
+                new_widget = {
+                    widgetType: req.body.widgetType,
+                    pageId: req.body.pageId,
+                    name: req.body.name,
+                    text: req.body.text,
+                    rows: req.body.rows,
+                    placeholder: req.body.placeholder,
+                    formatted: req.body.formatted
+                };
+                break;
         }
 
         widgetModel
@@ -219,6 +230,15 @@ module.exports = function (app) {
                 update_widget = {
                     name: req.body.name,
                     text: req.body.text,
+                };
+                break;
+            case 'INPUT':
+                update_widget = {
+                    name: req.body.name,
+                    text: req.body.text,
+                    rows: req.body.rows,
+                    placeholder: req.body.placeholder,
+                    formatted: req.body.formatted
                 };
                 break;
         }

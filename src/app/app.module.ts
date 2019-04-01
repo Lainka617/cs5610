@@ -34,6 +34,7 @@ import { HomeComponent } from './home/home.component';
 import {SortableDirective} from './views/widget/widget-list/sortable.directive';
 import {FlickrImageSearchComponent} from './views/widget/widget-edit/widget-image/flickr-image-search.component';
 import {FlickrService} from './services/flickr.service.client';
+import { WidgetTextComponent } from './views/widget/widget-edit/widget-text/widget-text.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import {FlickrService} from './services/flickr.service.client';
     HomeComponent,
     SortableDirective,
     FlickrImageSearchComponent,
-    WidgetHtmlComponent
+    WidgetHtmlComponent,
+    WidgetTextComponent
   ],
   imports: [
     QuillEditorModule,

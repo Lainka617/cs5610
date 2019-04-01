@@ -65,6 +65,21 @@
             </div>
             <div class="container" [innerHTML]="widget.text"></div>
           </div>
+          <div *ngSwitchCase="'INPUT'">
+            <div class="pull-right">
+              <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget/{{widget._id}}/text" class="pull-right">
+                <span class="fas fa-bars fontawsome_icon"></span>
+              </a>
+              <a routerLink="/user/{{userId}}/website/{{websiteId}}/page/{{pageId}}/widget/{{widget._id}}/text" class="pull-right">
+                <span class="fas fa-cog fontawsome_icon"></span>
+              </a>
+            </div>
+            <div *ngIf="widget.formatted">
+              <quill-editor [(ngModel)]="widget.text" name="text"></quill-editor>
+            </div>
+            <input *ngIf="!widget.formatted && (!widget.rows || widget.rows===1)" placeholder="{{widget.placeholder}}" class="form-control"/>
+            <textarea *ngIf="(!widget.formatted) && (widget.rows > 1)" rows="{{widget.rows}}" placeholder="{{widget.placeholder}}" class="form-control">{{widget.text}}</textarea>
+          </div>
         </div>
       </div>
   </ul>

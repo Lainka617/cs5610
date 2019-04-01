@@ -37,8 +37,8 @@ export class WidgetListComponent implements OnInit {
                 if (data != null) {
                     temp = data;
                     temp.forEach(widget => {
-                        this.widgets.push(new Widget(widget._id, widget.widgetType, widget.pageId, widget.name, widget.size, widget.text, widget.width, widget.url));
-                        this.widgetsII.push(new Widget(widget._id, widget.widgetType, widget.pageId, widget.name, widget.size, widget.text, widget.width, widget.url));
+                        this.widgets.push(new Widget(widget._id, widget.widgetType, widget.pageId, widget.name, widget.size, widget.text, widget.width, widget.url, widget.placeholder, widget.rows, widget.formatted));
+                        this.widgetsII.push(new Widget(widget._id, widget.widgetType, widget.pageId, widget.name, widget.size, widget.text, widget.width, widget.url, widget.placeholder, widget.rows, widget.formatted));
                         console.log(this.widgets[this.widgets.length - 1].text);
                         if (widget.url) {
                             try {

@@ -148,6 +148,18 @@ export  class WidgetService {
                     text: widget.text,
                 };
                 break;
+            case 'INPUT':
+                body = {
+                    _id: widget._id,
+                    widgetType: widget.widgetType,
+                    pageId: widget.pageId,
+                    name: widget.name,
+                    text: widget.text,
+                    rows: widget.rows,
+                    placeholder: widget.placeholder,
+                    formatted: widget.formatted
+                };
+                break;
         }
         return this.http.put(
             environment.baseUrl + '/api/widget/' + widgetId, body);
