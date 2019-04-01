@@ -36,7 +36,9 @@ export class WidgetImageComponent implements OnInit {
         }
     );
     this.imageNewUrl = this._activatedRoute.snapshot.paramMap.get('imageUrl');
-
+    if (this.imageNewUrl != null) {
+        this.imageUrl = this.imageNewUrl;
+    }
     this._widgetService.findWidgetById(this.widgetId).subscribe(
         (data: Widget) => {
           console.log(data);
