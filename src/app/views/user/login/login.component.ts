@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { ViewChild } from '@angular/core';
-import {UserService} from '../../../services/user.service.client';
-import {User} from '../../../models/user.model.client';
+import { UserService } from '../../../services/user.service.client';
+import { SharedService } from '../../../services/shared.service';
+import { User } from '../../../models/user.model.client';
 
 @Component({
   selector: 'app-login',
@@ -20,10 +21,9 @@ export class LoginComponent implements OnInit {
   errorFlag: boolean;
   errorMsg = 'Invalid username or password !';
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: UserService, private router: Router, private sharedService: SharedService) {
     this.errorFlag = false;
   }
-
 
   login () {
     // fetching data from loginform
@@ -32,9 +32,10 @@ export class LoginComponent implements OnInit {
     alert(this.username);
 
     let user;
-    this.userService.findUserByCredential(this.username, this.password).subscribe(
+    this.userService.login(this.username, this.password).subscribe(
         (userData: User) => {
             user = userData;
+            this.sharedService.user = userData;
             this.errorFlag = false;
             console.log(this.username);
             console.log(this.password);

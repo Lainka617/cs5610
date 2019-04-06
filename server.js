@@ -40,8 +40,16 @@ var mongoose = require ('mongoose');
 
 var db = mongoose.connect(connectionString, {useNewUrlParser:true});
 
-// require('./demo/app')(app);
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
-// function demo(req, res){var body=req.body;}
+app.use(cookieParser());
+app.use(session({ secret: process.env.SESSION_SECRET }));
+
+var passport = require('passport');
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 

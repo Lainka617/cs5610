@@ -64,4 +64,12 @@ export class ProfileComponent implements OnInit {
       );
     });
   }
+
+  logout() {
+    this._userService.logout().subscribe(
+      (data: any) => {
+        this.router.navigate(['/login']);
+      }
+    );
+  }
 }
