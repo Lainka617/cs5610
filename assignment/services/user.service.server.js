@@ -127,8 +127,14 @@ module.exports = function (app) {
                         token: token
                     }
                 };
-                successRedirectUserId = profile.id;
-                return userModel.createUser(newFacebookUser);
+                console.log(profile.id);
+                return userModel.createUser(newFacebookUser)
+                .then(function (user){
+                    if(user) {
+                       successRedirectUserId = user._id; 
+                       console.log(successRedirectUserId);
+                    }
+                });
             }
         }, function (err) {
             if (err) {
