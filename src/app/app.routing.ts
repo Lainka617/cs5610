@@ -40,4 +40,4 @@ const appRoutes: Routes = [​
     { path: 'user/:uid/website/:wid/page/:pid/widget/:wgid/image/search', component: FlickrImageSearchComponent}
 ];​
 
-export const routing = RouterModule.forRoot(appRoutes, {useHash: true});
+export const routing = RouterModule.forRoot(appRoutes);
