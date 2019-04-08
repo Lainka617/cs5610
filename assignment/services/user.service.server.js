@@ -9,7 +9,7 @@ var bcrypt = require('bcrypt-nodejs');
 
 module.exports = function (app) {
     //app.use(cors({credentials: true, origin: 'http://localhost:4200'}));
-    var successRedirectUserId = '';
+    var successRedirectUserId = '5caad6dc45bbcc00044c6ba1';
     //user api list
     app.get("/api/user/:userId", findUserById);
     app.get('/api/user', findUserByCredOrName);
@@ -23,8 +23,8 @@ module.exports = function (app) {
     app.get("/facebook/login", passport.authenticate('facebook', { scope: 'email' }));
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            successRedirect: '/#/user/' + successRedirectUserId,
-            failureRedirect: '/#/login'
+            successRedirect: '/user/' + successRedirectUserId,
+            failureRedirect: '/login'
     }));
 
     passport.serializeUser(serializeUser);
