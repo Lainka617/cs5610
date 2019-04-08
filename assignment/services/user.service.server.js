@@ -24,9 +24,9 @@ module.exports = function (app) {
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {failureRedirect: '/login'}), 
             function(req, res) {
-            console.log(req);
-            console.log("auth successful2");
-            console.log(res);
+            //console.log(req);
+           // console.log("auth successful2");
+            //console.log(res);
             res.redirect('/user/' + successRedirectUserId);
     });
 
@@ -115,11 +115,11 @@ module.exports = function (app) {
     }
 
     function facebookStrategy(token, refreshToken, profile, done) {
-        console.log("get token");
+        //console.log("get token");
         userModel.findUserByFacebookId(profile.id).then(function (user) {
             if (user) {
                 successRedirectUserId = user._id; 
-                console.log(successRedirectUserId);
+                //console.log(successRedirectUserId);
                 return done(null, user);
             } else {
                 var names = profile.displayName.split(" ");
@@ -132,12 +132,12 @@ module.exports = function (app) {
                         token: token
                     }
                 };
-                console.log(profile.id);
+                //console.log(profile.id);
                 userModel.createUser(newFacebookUser)
                 .then(function (user){
                     if(user) {
                        successRedirectUserId = user._id; 
-                       console.log(successRedirectUserId);
+                       //console.log(successRedirectUserId);
                        return done(null, user);
                     }
                 }, function (err) {
