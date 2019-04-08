@@ -17,7 +17,7 @@ var api = {
 
 //functions gp here
 function findUserByFacebookId(facebookId) {
-    return User.findOne({'facebook.id': facebookId});
+    return userModel.findOne({'facebook.id': facebookId});
 }
 
 function createUser(user){
@@ -33,7 +33,7 @@ function findUserByUserName(username){
 }
 
 function findUserByCredentials(username, password){
-    return userModel.findOne({username: username, password: password});
+    return userModel.findOne({username: username});
 }
 
 function findUserById(userId){

@@ -11,6 +11,9 @@ export class UserService {
     api = {
         'createUser' : this.createUser,
         'login': this.login,
+        'loggedin': this.loggedIn,
+        'logout': this.logout,
+        'facebook/login': this.facebookLogin,
         'findUserByUsername' : this.findUserByUsername,
         'findUserById' : this.findUserById,
         'updateUser' : this.updateUser,
@@ -33,15 +36,19 @@ export class UserService {
     }
 
     logout() {
-        return this.http.post( environment.baseUrl + 'api/logout', '', {
+        return this.http.post( environment.baseUrl + '/api/logout', '', {
             withCredentials: true
         });
     }
 
     loggedIn() {
-        return this.http.post( environment.baseUrl + 'api/loggedin', '', {
+        return this.http.post( environment.baseUrl + '/api/loggedin', '', {
             withCredentials: true
         });
+    }
+
+    facebookLogin() {
+        return this.http.get( environment.baseUrl + '/facebook/login');
     }
 
     findUserByUsername(username: string) {

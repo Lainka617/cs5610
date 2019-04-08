@@ -2,26 +2,28 @@
 
 const userModel = require('../model/user/user.model.server');
 var passport = require('passport');
+// var cors = require('cors');
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var bcrypt = require('bcrypt-nodejs');
 
 module.exports = function (app) {
+    // app.use(cors({credentials: true, origin: 'http://localhost:4200'}));
     //user api list
     app.get("/api/user/:userId", findUserById);
     app.get('/api/user', findUserByCredOrName);
     app.post("/api/user", createUser);
-    app.post("api/login", passport.authenticate('local'), login);
-    app.post("api/logout", logout);
+    app.post("/api/login", passport.authenticate('local'), login);
+    app.post("/api/logout", logout);
     app.put("/api/user/:userId", updateUser);
     app.delete("/api/user/:userId", deleteUserById);
 
-    app.get("api/loggedin", loggedin);
+    app.post("/api/loggedin", loggedin);
     app.get("/facebook/login", passport.authenticate('facebook', { scope: 'email' }));
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            successRedirect: '/#/user/:userId',
-            failureRedirect: '/#/login'
+            successRedirect: '/user/:uid',
+            failureRedirect: '/login'
     }));
 
     passport.serializeUser(serializeUser);
@@ -51,6 +53,7 @@ module.exports = function (app) {
 
     function localStrategy(username, password, done){
         userModel.findUserByCredentials(username, password).then(function (user) {
+            console.log(bcrypt.compareSync(password, user.password));
             if (user.username === username && bcrypt.compareSync(password, user.password)) {
                 return done(null, user);
             } else {
@@ -100,7 +103,7 @@ module.exports = function (app) {
 
     function logout(req, res) {
         req.logOut();
-        res.send(200);
+        res.status(200).send({});
     }
 
     function loggedin(req, res) {

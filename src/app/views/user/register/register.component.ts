@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
           (userData: any) => {
             this.errorFlag = false;
             console.log(userData);
-            this.router.navigate(['/user/', userData._id]);
+            this.router.navigate(['/user/' + userData._id]);
           },
           (error: any) => {
             console.log(error);

@@ -36,6 +36,7 @@ import {FlickrImageSearchComponent} from './views/widget/widget-edit/widget-imag
 import {FlickrService} from './services/flickr.service.client';
 import { WidgetTextComponent } from './views/widget/widget-edit/widget-text/widget-text.component';
 import { SharedService } from './services/shared.service';
+import { AuthGuard } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -69,7 +70,7 @@ import { SharedService } from './services/shared.service';
     HttpClientModule,
     routing
   ],
-  providers: [UserService, WebsiteService, PageService, WidgetService, FlickrService, SharedService],
+  providers: [UserService, WebsiteService, PageService, WidgetService, FlickrService, SharedService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

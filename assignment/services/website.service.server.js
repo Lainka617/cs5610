@@ -11,17 +11,6 @@ module.exports = function (app) {
     app.put("/api/website/:websiteId", updateWebsite);
     app.delete("/api/website/:websiteId", deleteWebsite);
 
-    // var websites = [
-    //     {'_id': '123', 'name': 'Facebook', 'developerId': '123', 'description': 'Lorem1' },
-    //     {'_id': '234', 'name': 'Twittter', 'developerId': '456', 'description': 'Lorem2' },
-    //     {'_id': '456', 'name': 'Gizmodo', 'developerId': '456', 'description': 'Lorem3' },
-    //     {'_id': '890', 'name': 'Microsoft', 'developerId': '234', 'description': 'Lorem4' },
-    //     {'_id': '567', 'name': 'Google', 'developerId': '123', 'description': 'Lorem5' },
-    //     {'_id': '678', 'name': 'Uber', 'developerId': '234', 'description': 'Lorem6' },
-    //     {'_id': '671', 'name': 'Lyft', 'developerId': '345', 'description': 'Lorem7' },
-    //     {'_id': '789', 'name': 'Zillow', 'developerId': '345', 'description': 'Lorem8' }
-    // ]
-
     function createWebsite(req, res) {
         const new_website = {
             name: req.body.name,
@@ -45,7 +34,7 @@ module.exports = function (app) {
             websites => {
                 console.log(websites);
                 if(websites == null || websites.length == 0) {
-                    res.sendStatus(404).send('not found!');
+                    res.status(404).send('not found!');
                 }
                 else {
                     res.send(websites);

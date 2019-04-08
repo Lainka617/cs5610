@@ -5,6 +5,10 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 const app = express();
+require('dotenv').config();
+
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,9 +17,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'dist/web-maker')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(cookieParser());
+app.use(session({ secret: process.env.SESSION_SECRET }));
+
+var passport = require('passport');
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 // CORS
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   next();
@@ -40,16 +53,6 @@ var mongoose = require ('mongoose');
 
 var db = mongoose.connect(connectionString, {useNewUrlParser:true});
 
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-
-app.use(cookieParser());
-app.use(session({ secret: process.env.SESSION_SECRET }));
-
-var passport = require('passport');
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 
 

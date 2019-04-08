@@ -39,12 +39,21 @@ export class LoginComponent implements OnInit {
             this.errorFlag = false;
             console.log(this.username);
             console.log(this.password);
-            this.router.navigate(['/user', user._id]);
+            console.log(user._id);
+            this.router.navigate(['/user/' + user._id]);
         },
         (error: any) => {
             console.log(error);
             this.errorFlag = true;
         });
+  }
+
+  facebookLogin() {
+    this.userService.facebookLogin().subscribe(
+      (data: any) => {
+        console.log(data);
+      }
+    );
   }
 
   ngOnInit() {
