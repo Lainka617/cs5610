@@ -115,6 +115,8 @@ module.exports = function (app) {
         console.log("get token");
         userModel.findUserByFacebookId(profile.id).then(function (user) {
             if (user) {
+                successRedirectUserId = user._id; 
+                console.log(successRedirectUserId);
                 return done(null, user);
             } else {
                 var names = profile.displayName.split(" ");
