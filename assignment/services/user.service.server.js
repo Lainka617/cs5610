@@ -128,20 +128,19 @@ module.exports = function (app) {
                     }
                 };
                 console.log(profile.id);
-                return userModel.createUser(newFacebookUser)
+                userModel.createUser(newFacebookUser)
                 .then(function (user){
                     if(user) {
                        successRedirectUserId = user._id; 
                        console.log(successRedirectUserId);
+                       return done(null, user);
+                    }
+                }, function (err) {
+                    if (err) {
+                        return done(err);
                     }
                 });
             }
-        }, function (err) {
-            if (err) {
-                return done(err);
-            }
-        }).then(function (user) {
-            return done(null, user);
         }, function (err) {
             if (err) {
                 return done(err);

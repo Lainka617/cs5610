@@ -27,21 +27,21 @@
       </span>
 
       <div class="form-group">
-        <input type="text" name="firstName" placeholder="firstname" class="form-control" ngModel required #firstName="ngModel">
+        <input type="text" name="firstName" placeholder="firstname" class="form-control" ngModel #firstName="ngModel">
       </div>
       <span class="help-block" *ngIf="!firstName.valid && firstName.touched">
           Please re-enter firstName!
       </span>
 
       <div class="form-group">
-        <input type="text" name="lastName" placeholder="lastname" class="form-control" ngModel required #lastName="ngModel">
+        <input type="text" name="lastName" placeholder="lastname" class="form-control" ngModel #lastName="ngModel">
       </div>
       <span class="help-block" *ngIf="!lastName.valid && lastName.touched">
           Please re-enter lastName!
       </span>
 
       <div class="form-group">
-        <input type="email" name="email" placeholder="email" class="form-control" ngModel required #email="ngModel">
+        <input type="email" name="email" placeholder="email" class="form-control" ngModel #email="ngModel">
       </div>
       <span class="help-block" *ngIf="!email.valid && email.touched">
           Please re-enter email!
