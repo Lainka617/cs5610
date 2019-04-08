@@ -8,12 +8,9 @@ userModel.findUserByUserName = findUserByUserName;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.findUserById = findUserById;
 userModel.deleteUser = deleteUser;
+userModel.findUserByFacebookId = findUserByFacebookId;
 
 module.exports = userModel;
-
-var api = {
-    findUserByFacebookId: findUserByFacebookId,
-};
 
 //functions gp here
 function findUserByFacebookId(facebookId) {

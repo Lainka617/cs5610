@@ -2,13 +2,13 @@
 
 const userModel = require('../model/user/user.model.server');
 var passport = require('passport');
-// var cors = require('cors');
+//var cors = require('cors');
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var bcrypt = require('bcrypt-nodejs');
 
 module.exports = function (app) {
-    // app.use(cors({credentials: true, origin: 'http://localhost:4200'}));
+    //app.use(cors({credentials: true, origin: 'http://localhost:4200'}));
     //user api list
     app.get("/api/user/:userId", findUserById);
     app.get('/api/user', findUserByCredOrName);
@@ -22,8 +22,8 @@ module.exports = function (app) {
     app.get("/facebook/login", passport.authenticate('facebook', { scope: 'email' }));
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            successRedirect: '/user/:uid',
-            failureRedirect: '/login'
+            successRedirect: '/#/register',
+            failureRedirect: '/#/login'
     }));
 
     passport.serializeUser(serializeUser);
@@ -111,6 +111,7 @@ module.exports = function (app) {
     }
 
     function facebookStrategy(token, refreshToken, profile, done) {
+        console.log("get token");
         userModel.findUserByFacebookId(profile.id).then(function (user) {
             if (user) {
                 return done(null, user);
