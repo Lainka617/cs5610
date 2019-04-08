@@ -23,11 +23,16 @@ module.exports = function (app) {
     app.get("/facebook/login", passport.authenticate('facebook', { scope: 'email' }));
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {failureRedirect: '/login'}, function(req, res) {
-            console.log("auth successful");
-            console.log(res.user);
-            res.redirect('/user/' + successRedirectUserId);
+            console.log("auth successful1");
+            console.log(req);
+            console.log(res);
         }
-    ));
+    ), (req, res) => {
+        console.log("auth successful2");
+        console.log(req);
+        console.log(res);
+        res.redirect('/user/' + successRedirectUserId);
+    });
 
     passport.serializeUser(serializeUser);
 
