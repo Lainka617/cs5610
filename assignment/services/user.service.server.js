@@ -9,7 +9,7 @@ var bcrypt = require('bcrypt-nodejs');
 
 module.exports = function (app) {
     //app.use(cors({credentials: true, origin: 'http://localhost:4200'}));
-    var successRedirectUserId = '5caad6dc45bbcc00044c6ba1';
+    var successRedirectUserId = '';
     //user api list
     app.get("/api/user/:userId", findUserById);
     app.get('/api/user', findUserByCredOrName);
